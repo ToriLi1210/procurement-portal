@@ -1,0 +1,82 @@
+{
+  "Keyboard": [
+    {
+      "id": "AppleMagicKeyboard",
+      "name": "Apple Magic Keyboard",
+      "category": "keyboard",
+      "description": "Magic Keyboard is available with Touch ID, providing fast, easy and secure authentication for logins and purchases.",
+      "star": 4.5
+    },
+    {
+      "id": "LogitechKeyboard",
+      "name": "Logitech Keyboard",
+      "category": "keyboard",
+      "description": "Designed with speed and precision, the Logitech G915 X Low-Profile Wired Gaming Keyboard lets you achieve peak gaming performance. With customisable features, you can elevate your skills and add style to your setup.",
+      "star": 4.5
+    }
+  ],
+  "Laptop": [
+    {
+      "id": "Acer",
+      "name": "Acer",
+      "category": "laptop",
+      "description": "Offering fast computing capabilities and ample storage, the Acer Aspire Lite 16 16-inch i5-1334U/8GB/512GB SSD Laptop can handle any task with ease. With a combination of style and function, this laptop can deliver an impressive experience.",
+      "star": 4.5
+    },
+    {
+      "id": "Lenovo",
+      "name": "Lenovo",
+      "category": "laptop",
+      "description": "With its 360° convertible setup, durable, drop-down hinge, powerful AMD Ryzen™ processor, and full-function Type-C™ port, the Lenovo IdeaPad Flex 5 is a practical and versatile workspace option that adapts and fits to your needs, moods, and environments.",
+      "star": 4.5
+    }
+  ],
+  "Microwave": [
+    {
+      "id": "LG",
+      "name": "LG",
+      "category": "microwave",
+      "description": "Making food preparation easy and convenient, the LG NeoChef 42L Smart Inverter Microwave Oven - Black offers a large capacity and versatile cooking modes. Featuring a sleek, modern exterior, it seamlessly blends well with your kitchen interiors.",
+      "star": 4.5
+    },
+    {
+      "id": "Panasonic",
+      "name": "Panasonic",
+      "category": "microwave",
+      "description": "With a flawless flatbed design meaning no turntable, a premium stainless steel finish and 16 cooking functions, this inverter microwave will tick all your boxes.",
+      "star": 4.5
+    }
+  ],
+  "Monitor": [
+    {
+      "id": "MSI",
+      "name": "MSI",
+      "category": "monitor",
+      "description": "With Adaptive Sync technology, a high refresh rate, and a fast response time, the MSI 27inch G27C4 E3 FHD 180HZ Curved Gaming Monitor effectively eliminates screen tearing and delivers seamless graphics, so you can enjoy smooth gaming even with intense, fast-paced scenes.",
+      "star": 4.5
+    },
+    {
+      "id": "Samsung",
+      "name": "Samsung",
+      "category": "monitor",
+      "description": "Immerse yourself in the world of high-quality visuals with the Samsung 27-inch S39C FHD Curved Monitor. Its curved display, high-resolution imagery, and impressive performance make it an excellent choice for gaming, multimedia entertainment, and everyday computing tasks. Experience a new level of visual immersion and enjoy stunning visuals with this feature-packed monitor.",
+      "star": 4.5
+    }
+  ],
+  "Scientificequipment": [
+    {
+      "id": "Batterymate",
+      "name": "Batterymate",
+      "category": "scientificequipment",
+      "description": "A versatile tool for electricians, technicians, and students, the BatteryMate XL830L Current New Tester Volt Meter Ohmmeter Ammeter AC/DC Digital Multimeter helps you get precise measurements with ease. With its easy-to-read LCD screen, overload protection, and durable design, this multimeter handles a variety of electrical tasks, from circuit testing to voltage and current measurement.",
+      "star": 4.5
+    },
+    {
+      "id": "DigitalVolt",
+      "name": "Digital Volt",
+      "category": "scientificequipment",
+      "description": "Measure a variety of power indicators to help prevent peak currents damaging battery, motors, wiring, ESC, and connectors with the Atem Power 200 AMP Digital Volt Watt Metre Caravan 4x4 Camping Solar 12V Ammeter.",
+      "star": 4.5
+    }
+  ]
+}
