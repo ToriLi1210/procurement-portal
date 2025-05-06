@@ -7,7 +7,7 @@ import RatedDevices from "@/components/RatedDevices";
 
 export default function ProcurementPortal() {
   return (
-    <div className="p-6 space-y-6">
+    <div className="p-6 space-y-6 flex flex-col items-center text-center">
       <h1 className="text-3xl font-bold">E-Waste Sustainable Procurement Portal</h1>
 
       <Tabs defaultValue="rated" className="space-y-4">
