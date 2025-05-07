@@ -5,6 +5,9 @@ import { Label } from "@/components/ui/label";
 import { useState } from "react";
 import { toast } from "sonner";
 import { useNavigate } from "react-router-dom";
+import posthog from "posthog-js";
+
+
 
 
 type Device = {
@@ -40,6 +43,15 @@ export default function RatedCategoryPanel({
       d.price <= maxPrice
 
   );
+  const handleCardClick = (device: Device) => {
+    posthog.capture('clicked_device_card', {
+      name: device.name,
+      category: device.category,
+      star: device.star,
+    });
+    navigate(`/devices/${device.category}/${device.id}`);
+  };
+  
 
   return (
     <div>
@@ -63,6 +75,7 @@ export default function RatedCategoryPanel({
             onChange={(e) => {
               const value = Number(e.target.value);
               setMinStars(value);
+              posthog.capture("used_star_filter", { star: value });
             }}
           >
             <option value={0}>All</option>
@@ -93,17 +106,17 @@ export default function RatedCategoryPanel({
         {filtered.map((device, i) => (
           <Card key={i}
           className="cursor-pointer hover:shadow-lg transition bg-white text-black"
-          onClick={() => navigate(`/devices/${device.category}/${device.id}`)}>
+          onClick={() => handleCardClick(device)}>
             <CardContent className="relative p-0 overflow-hidden">
               <div className="relative">
                 {/* Main product image with AVIF fallback */}
                 <picture>
                   <source
-                    srcSet={`/images/devices/${device.category}/${device.id}/Product.jpg.avif`}
+                    srcSet={`${import.meta.env.BASE_URL}images/devices/${device.category}/${device.id}/Product.jpg.avif`}
                     type="image/avif"
                   />
                   <img
-                    src={`/images/devices/${device.category}/${device.id}/Product.jpg`}
+                    src={`/${import.meta.env.BASE_URL}images/devices/${device.category}/${device.id}/Product.jpg`}
                     alt={device.name}
                     className="w-full aspect-[4/3] object-cover"
                   />
@@ -112,7 +125,7 @@ export default function RatedCategoryPanel({
                 {/* Overlay rating badge (image) */}
                 <img
                   // src={`/images/devices/${device.category}/${device.id}/Rating.png`}
-                  src={`/images/rating.png`}
+                  src={`${import.meta.env.BASE_URL}images/rating.png`}
                   alt="Rating"
                   className="absolute top-2 right-2 w-12 h-12 drop-shadow-md"
                 />

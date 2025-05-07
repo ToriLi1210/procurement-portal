@@ -38,11 +38,11 @@ export default function DeviceDetail() {
 
       <picture>
         <source
-          srcSet={`/images/devices/${device.category}/${device.id}/Product.jpg.avif`}
+          srcSet={`${import.meta.env.BASE_URL}images/devices/${device.category}/${device.id}/Product.jpg.avif`}
           type="image/avif"
         />
         <img
-          src={`/images/devices/${device.category}/${device.id}/Product.jpg`}
+          src={`${import.meta.env.BASE_URL}images/devices/${device.category}/${device.id}/Product.jpg`}
           alt={device.name}
           className="w-full rounded-lg object-cover aspect-[4/3]"
         />

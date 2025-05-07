@@ -10,7 +10,7 @@ export default function ProcurementPortal() {
     // bg-[#030E3D] text-white
     <div className="min-h-screen p-6 space-y-6 flex flex-col items-center">
       <div className="w-full flex items-center justify-start">
-        <img src="../public/images/unimelb.logo.jpg" alt="Logo" className="h-10" />
+        <img src={`${import.meta.env.BASE_URL}images/unimelb.logo.jpg`} alt="Logo" className="h-10" />
       </div>
       <h1 className="text-3xl font-bold">E-Waste Sustainable Procurement Portal</h1>
 
