@@ -33,7 +33,7 @@ for (const key in rawData) {
 export default function RatedDevices() {
   return (
     <div className="space-y-4">
-      <h2 className="text-xl font-semibold">Rated Electronics by Category</h2>
+      <h2 className="text-xl font-semibold text-center">Rated Electronics by Category</h2>
 
       <Tabs defaultValue="Laptop" className="space-y-2">
         <TabsList className="overflow-x-auto flex gap-2">

@@ -71,7 +71,7 @@ export default function RatedCategoryPanel({
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-4">
         {filtered.map((device, i) => (
           <Card key={i}
-          className="cursor-pointer hover:shadow-lg transition"
+          className="cursor-pointer hover:shadow-lg transition bg-white text-black"
           onClick={() => navigate(`/devices/${device.category}/${device.id}`)}>
             <CardContent className="relative p-0 overflow-hidden">
               <div className="relative">

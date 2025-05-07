@@ -7,11 +7,15 @@ import RatedDevices from "@/components/RatedDevices";
 
 export default function ProcurementPortal() {
   return (
-    <div className="p-6 space-y-6 flex flex-col items-center text-center">
+    // bg-[#030E3D] text-white
+    <div className="min-h-screen p-6 space-y-6 flex flex-col items-center">
+      <div className="w-full flex items-center justify-start">
+        <img src="../public/images/unimelb.logo.jpg" alt="Logo" className="h-10" />
+      </div>
       <h1 className="text-3xl font-bold">E-Waste Sustainable Procurement Portal</h1>
 
-      <Tabs defaultValue="rated" className="space-y-4">
-        <TabsList>
+      <Tabs defaultValue="rated" className="space-y-4 w-full max-w-5xl mx-auto">
+      <TabsList className="flex justify-center gap-4 border border-white p-2 rounded-lg">
           <TabsTrigger value="rated">⭐ Rated Devices</TabsTrigger>
           <TabsTrigger value="market">♻️ Marketplace</TabsTrigger>
           <TabsTrigger value="submit">📤 Submit New Product</TabsTrigger>
