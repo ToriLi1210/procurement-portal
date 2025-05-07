@@ -21,12 +21,14 @@ for (const category of readdirSync(baseDir)) {
       const metaPath = path.join(categoryDir, deviceId, "meta.json");
       let description = "";
       let star = 0;
+      let price = 0;
       //  read meta.json
       if (existsSync(metaPath)) {
         try {
           const meta = JSON.parse(readFileSync(metaPath, "utf-8"));
           description = meta.description || "";
           star = meta.star || 0;
+          price = meta.price ||0;
         } catch (err) {
           console.warn(`⚠️ Failed to parse meta.json for ${deviceId}: ${err.message}`);
         }
@@ -38,6 +40,7 @@ for (const category of readdirSync(baseDir)) {
         category: category.toLowerCase(),
         description,
         star,
+        price,
       };
     });
   }

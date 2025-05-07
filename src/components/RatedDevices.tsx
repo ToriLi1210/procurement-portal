@@ -7,6 +7,7 @@ type Device = {
   category: string;
   description: string;
   star:number;
+  price: number;
 };
 
 type DeviceDataMap = Record<string, Device[]>;

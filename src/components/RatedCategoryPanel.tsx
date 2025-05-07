@@ -13,6 +13,7 @@ type Device = {
   category: string;
   description: string;
   star: number;
+  price: number;
 };
 
 export default function RatedCategoryPanel({
@@ -29,11 +30,15 @@ export default function RatedCategoryPanel({
   // State for minimum star rating filter
   const [minStars, setMinStars] = useState(0);
 
+  const [maxPrice, setMaxPrice] = useState(Infinity);
+
   // Filter devices by search term and minimum star rating
   const filtered = devices.filter(
     (d) =>
       d.name.toLowerCase().includes(search.toLowerCase()) &&
-      d.star >= minStars
+      d.star >= minStars &&
+      d.price <= maxPrice
+
   );
 
   return (
@@ -55,7 +60,10 @@ export default function RatedCategoryPanel({
           <select
             className="border px-2 py-1 rounded"
             value={minStars}
-            onChange={(e) => setMinStars(Number(e.target.value))}
+            onChange={(e) => {
+              const value = Number(e.target.value);
+              setMinStars(value);
+            }}
           >
             <option value={0}>All</option>
             <option value={1}>1+</option>
@@ -65,7 +73,20 @@ export default function RatedCategoryPanel({
             <option value={5}>5 only</option>
           </select>
         </div>
+        <div className="flex items-center gap-2">
+        <Label>Max Price:</Label>
+        <Input
+          type="number"
+          className="w-32"
+          placeholder="No limit"
+          onChange={(e) => {
+            const value = Number(e.target.value);
+            setMaxPrice(isNaN(value) ? Infinity : value);
+          }}
+        />
       </div>
+      </div>
+      
 
       {/* Grid of device cards */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-4">
@@ -101,6 +122,7 @@ export default function RatedCategoryPanel({
               <div className="p-4 flex flex-col items-center text-center space-y-2">
                 <h3 className="text-lg font-semibold">{device.name}</h3>
                 <p className="text-sm text-yellow-600 font-medium">⭐ {device.star} rating</p>
+                <p className="text-sm text-green-700 font-semibold">${device.price.toFixed(2)}</p>
                 <p className="text-sm text-gray-600">{device.description}</p>
                 {/* Prevent click from bubbling up */}
                 <Button
