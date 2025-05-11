@@ -35,6 +35,8 @@ export default function RatedCategoryPanel({
 
   const [maxPrice, setMaxPrice] = useState(Infinity);
 
+  const [showStars, setShowStars] = useState(true);
+
   // Filter devices by search term and minimum star rating
   const filtered = devices.filter(
     (d) =>
@@ -67,37 +69,51 @@ export default function RatedCategoryPanel({
           />
         </div>
 
+        {showStars && (
+          <div className="flex items-center gap-2">
+            <Label>Min Stars:</Label>
+            <select
+              className="border px-2 py-1 rounded"
+              value={minStars}
+              onChange={(e) => {
+                const value = Number(e.target.value);
+                setMinStars(value);
+                posthog.capture("used_star_filter", { star: value });
+              }}
+            >
+              <option value={0}>All</option>
+              <option value={1}>1+</option>
+              <option value={2}>2+</option>
+              <option value={3}>3+</option>
+              <option value={4}>4+</option>
+              <option value={5}>5 only</option>
+            </select>
+          </div>
+        )}
+
         <div className="flex items-center gap-2">
-          <Label>Min Stars:</Label>
-          <select
-            className="border px-2 py-1 rounded"
-            value={minStars}
+          <Label>Max Price:</Label>
+          <Input
+            type="number"
+            className="w-32"
+            placeholder="No limit"
             onChange={(e) => {
               const value = Number(e.target.value);
-              setMinStars(value);
-              posthog.capture("used_star_filter", { star: value });
+              setMaxPrice(isNaN(value) ? Infinity : value);
             }}
-          >
-            <option value={0}>All</option>
-            <option value={1}>1+</option>
-            <option value={2}>2+</option>
-            <option value={3}>3+</option>
-            <option value={4}>4+</option>
-            <option value={5}>5 only</option>
-          </select>
+          />
+
+          {/* Toggle switch without label, next to Max Price */}
+          <input
+            type="checkbox"
+            checked={showStars}
+            onChange={() => setShowStars(!showStars)}
+            className="w-10 h-5 rounded-full bg-gray-300 appearance-none checked:bg-green-500 relative transition-all duration-300
+              before:content-[''] before:absolute before:top-0.5 before:left-0.5 before:w-4 before:h-4 before:rounded-full before:bg-white
+              before:transition-all before:duration-300 checked:before:translate-x-5"
+          />
         </div>
-        <div className="flex items-center gap-2">
-        <Label>Max Price:</Label>
-        <Input
-          type="number"
-          className="w-32"
-          placeholder="No limit"
-          onChange={(e) => {
-            const value = Number(e.target.value);
-            setMaxPrice(isNaN(value) ? Infinity : value);
-          }}
-        />
-      </div>
+
       </div>
       
 
@@ -123,18 +139,24 @@ export default function RatedCategoryPanel({
                 </picture>
 
                 {/* Overlay rating badge (image) */}
-                <img
-                  // src={`/images/devices/${device.category}/${device.id}/Rating.png`}
-                  src={`${import.meta.env.BASE_URL}images/rating.png`}
-                  alt="Rating"
-                  className="absolute top-2 right-2 w-12 h-12 drop-shadow-md"
-                />
+                {showStars && (
+                  <img
+                    src={`${import.meta.env.BASE_URL}images/rating.png`}
+                    alt="Rating"
+                    className="absolute top-2 right-2 w-12 h-12 drop-shadow-md"
+                  />
+                )}
+
               </div>
 
               {/* Device details: star + description + button */}
               <div className="p-4 flex flex-col items-center text-center space-y-2">
                 <h3 className="text-lg font-semibold">{device.name}</h3>
-                <p className="text-sm text-yellow-600 font-medium">⭐ {device.star} rating</p>
+                {showStars && (
+                  <p className="text-sm text-yellow-600 font-medium">
+                    ⭐ {device.star} rating
+                  </p>
+                )}
                 <p className="text-sm text-green-700 font-semibold">${device.price.toFixed(2)}</p>
                 <p className="text-sm text-gray-600">{device.description}</p>
                 {/* Prevent click from bubbling up */}
