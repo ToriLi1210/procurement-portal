@@ -2,13 +2,10 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
-import { useState } from "react";
+import { useState, useEffect } from "react"; 
 import { toast } from "sonner";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useSearchParams } from "react-router-dom";
 import posthog from "posthog-js";
-
-
-
 
 type Device = {
   id: string;
@@ -27,33 +24,46 @@ export default function RatedCategoryPanel({
   devices: Device[];
 }) {
   const navigate = useNavigate();
+  const [searchParams, setSearchParams] = useSearchParams();
+
   // State for search text input
   const [search, setSearch] = useState("");
 
-  // State for minimum star rating filter
+  // State for minimum star rating filter and maximum price
   const [minStars, setMinStars] = useState(0);
-
   const [maxPrice, setMaxPrice] = useState(Infinity);
-
+  
+  // State for the showStars toggle
   const [showStars, setShowStars] = useState(true);
 
-  // Filter devices by search term and minimum star rating
+  // Update showStars whenever searchParams change
+  useEffect(() => {
+    setShowStars(searchParams.get("showStars") !== "false");
+  }, [searchParams]);
+
+  // Filter devices by search term, minimum star rating, and maximum price
   const filtered = devices.filter(
     (d) =>
       d.name.toLowerCase().includes(search.toLowerCase()) &&
       d.star >= minStars &&
       d.price <= maxPrice
-
   );
+
   const handleCardClick = (device: Device) => {
-    posthog.capture('clicked_device_card', {
+    posthog.capture("clicked_device_card", {
       name: device.name,
       category: device.category,
       star: device.star,
     });
     navigate(`/devices/${device.category}/${device.id}`);
   };
-  
+
+  // Toggle logic for the showStars value
+  const toggleShowStars = () => {
+    const newShowStars = !showStars;
+    setShowStars(newShowStars);
+    setSearchParams({ showStars: newShowStars ? "true" : "false" });
+  };
 
   return (
     <div>
@@ -103,19 +113,17 @@ export default function RatedCategoryPanel({
             }}
           />
 
-          {/* Toggle switch without label, next to Max Price */}
-          <input
+          {/* Toggle switch to show/hide stars */}
+          {/* <input
             type="checkbox"
             checked={showStars}
-            onChange={() => setShowStars(!showStars)}
+            onChange={toggleShowStars} // Use toggleShowStars function
             className="w-10 h-5 rounded-full bg-gray-300 appearance-none checked:bg-green-500 relative transition-all duration-300
               before:content-[''] before:absolute before:top-0.5 before:left-0.5 before:w-4 before:h-4 before:rounded-full before:bg-white
               before:transition-all before:duration-300 checked:before:translate-x-5"
-          />
+          /> */}
         </div>
-
       </div>
-      
 
       {/* Grid of device cards */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-4">
