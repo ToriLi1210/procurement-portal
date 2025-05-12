@@ -141,7 +141,7 @@ export default function RatedCategoryPanel({
                 {/* Overlay rating badge (image) */}
                 {showStars && (
                   <img
-                    src={`${import.meta.env.BASE_URL}images/rating.png`}
+                    src={`${import.meta.env.BASE_URL}images/devices/${device.category}/${device.id}/rating.png`}
                     alt="Rating"
                     className="absolute top-2 right-2 w-12 h-12 drop-shadow-md"
                   />
