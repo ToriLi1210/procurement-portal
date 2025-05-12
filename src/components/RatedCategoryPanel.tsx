@@ -79,27 +79,7 @@ export default function RatedCategoryPanel({
           />
         </div>
 
-        {showStars && (
-          <div className="flex items-center gap-2">
-            <Label>Min Stars:</Label>
-            <select
-              className="border px-2 py-1 rounded"
-              value={minStars}
-              onChange={(e) => {
-                const value = Number(e.target.value);
-                setMinStars(value);
-                posthog.capture("used_star_filter", { star: value });
-              }}
-            >
-              <option value={0}>All</option>
-              <option value={1}>1+</option>
-              <option value={2}>2+</option>
-              <option value={3}>3+</option>
-              <option value={4}>4+</option>
-              <option value={5}>5 only</option>
-            </select>
-          </div>
-        )}
+       
 
         <div className="flex items-center gap-2">
           <Label>Max Price:</Label>
@@ -123,6 +103,27 @@ export default function RatedCategoryPanel({
               before:transition-all before:duration-300 checked:before:translate-x-5"
           /> */}
         </div>
+         {showStars && (
+          <div className="flex items-center gap-2">
+            <Label>Min Stars:</Label>
+            <select
+              className="border px-2 py-1 border-gray-500 " 
+              value={minStars}
+              onChange={(e) => {
+                const value = Number(e.target.value);
+                setMinStars(value);
+                posthog.capture("used_star_filter", { star: value });
+              }}
+            >
+              <option value={0}>All</option>
+              <option value={1}>1+</option>
+              <option value={2}>2+</option>
+              <option value={3}>3+</option>
+              <option value={4}>4+</option>
+              <option value={5}>5 only</option>
+            </select>
+          </div>
+        )}
       </div>
 
       {/* Grid of device cards */}

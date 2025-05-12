@@ -23,7 +23,9 @@ export default function ProcurementPortal() {
         <img src={`${import.meta.env.BASE_URL}images/unimelb.logo.jpg`} alt="Logo" className="h-10" />
       </div>
       <h1 className="text-3xl font-bold">E-Waste Sustainable Procurement Portal</h1>
-
+    
+      <div className="flex items-center gap-2"> {/* Flex container */}
+      <p>Show Ratings:</p>
       <input
         type="checkbox"
         checked={showStars}
@@ -32,6 +34,7 @@ export default function ProcurementPortal() {
           before:content-[''] before:absolute before:top-0.5 before:left-0.5 before:w-4 before:h-4 before:rounded-full before:bg-white
           before:transition-all before:duration-300 checked:before:translate-x-5"
       />
+    </div>
 
       <Tabs defaultValue="rated" className="space-y-4 w-full max-w-5xl mx-auto">
         <TabsList className="flex justify-center gap-4 border border-white p-2 rounded-lg">
