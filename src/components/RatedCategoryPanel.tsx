@@ -16,15 +16,19 @@ type Device = {
   price: number;
 };
 
-// Add showStars as a prop to RatedCategoryPanel
+// Add cart and addToCart as props to RatedCategoryPanel
 export default function RatedCategoryPanel({
   categoryName,
   devices,
   showStars,
+  cart,
+  addToCart,
 }: {
   categoryName: string;
   devices: Device[];
   showStars: boolean;
+  cart: Device[];
+  addToCart: (device: Device) => void;
 }) {
   const navigate = useNavigate();
 
@@ -52,143 +56,153 @@ export default function RatedCategoryPanel({
     navigate(`/devices/${device.category}/${device.id}`);
   };
 
-  // Toggle logic for the showStars value
-  // const toggleShowStars = () => {
-  //   const newShowStars = !showStars;
-  //   setShowStars(newShowStars);
-  //   setSearchParams({ showStars: newShowStars ? "true" : "false" });
-  // };
-
   return (
-    <div>
-      {/* Filter controls: search + star filter */}
-      <div className="flex items-center gap-4 mt-4 flex-wrap">
-        <div className="flex items-center gap-2">
-          <Label>Search:</Label>
-          <Input
-            className="w-64"
-            value={search}
-            placeholder="Enter device name..."
-            onChange={(e) => setSearch(e.target.value)}
-          />
-        </div>
-
-       
-
-        <div className="flex items-center gap-2">
-          <Label>Max Price:</Label>
-          <Input
-            type="number"
-            className="w-32"
-            placeholder="No limit"
-            onChange={(e) => {
-              const value = Number(e.target.value);
-              setMaxPrice(isNaN(value) ? Infinity : value);
-            }}
-          />
-
-          {/* Toggle switch to show/hide stars */}
-          {/* <input
-            type="checkbox"
-            checked={showStars}
-            onChange={toggleShowStars} // Use toggleShowStars function
-            className="w-10 h-5 rounded-full bg-gray-300 appearance-none checked:bg-green-500 relative transition-all duration-300
-              before:content-[''] before:absolute before:top-0.5 before:left-0.5 before:w-4 before:h-4 before:rounded-full before:bg-white
-              before:transition-all before:duration-300 checked:before:translate-x-5"
-          /> */}
-        </div>
-         {showStars && (
-          <div className="flex items-center gap-2">
-            <Label>Min Stars:</Label>
-            <select
-              title="Filter by minimum stars"
-              className="border px-2 py-1 border-gray-500 " 
-              value={minStars}
-              onChange={(e) => {
-                const value = Number(e.target.value);
-                setMinStars(value);
-                posthog.capture("used_star_filter", { star: value });
-              }}
-            >
-              <option value={0}>All</option>
-              <option value={1}>1+</option>
-              <option value={2}>2+</option>
-              <option value={3}>3+</option>
-              <option value={4}>4+</option>
-              <option value={5}>5 only</option>
-            </select>
-          </div>
+    <div className="relative">
+      {/* Hanging Cart */}
+      <div className="fixed top-4 right-4 bg-white shadow-lg rounded-lg p-4 w-64 z-50">
+        <h3 className="text-lg font-semibold mb-2">Cart</h3>
+        {cart.length > 0 ? (
+          <ul className="space-y-2">
+            {cart.map((item, index) => (
+              <li key={index} className="flex justify-between items-center">
+                <span className="text-sm text-gray-700">{item.name}</span>
+                <span className="text-sm text-green-700">${item.price.toFixed(2)}</span>
+              </li>
+            ))}
+          </ul>
+        ) : (
+          <p className="text-sm text-gray-500">Your cart is empty.</p>
         )}
       </div>
 
-      {/* Grid of device cards */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-4">
-        {filtered.map((device, i) => (
-          <Card key={i}
-          className="cursor-pointer hover:shadow-lg transition bg-white text-black"
-          onClick={() => handleCardClick(device)}>
-            <CardContent className="relative p-0 overflow-hidden">
-              <div className="relative">
-                {/* Main product image with AVIF fallback */}
-                <picture>
-                  <source
-                    srcSet={`${import.meta.env.BASE_URL}images/devices/${device.category}/${device.id}/Product.jpg.avif`}
-                    type="image/avif"
-                  />
-                  <img
-                    src={`/${import.meta.env.BASE_URL}images/devices/${device.category}/${device.id}/Product.jpg`}
-                    alt={device.name}
-                    className="w-full aspect-[4/3] object-cover"
-                  />
-                </picture>
+      {/* Existing UI */}
+      <div>
+        {/* Filter controls: search + star filter */}
+        <div className="flex items-center gap-4 mt-4 flex-wrap">
+          <div className="flex items-center gap-2">
+            <Label>Search:</Label>
+            <Input
+              className="w-64"
+              value={search}
+              placeholder="Enter device name..."
+              onChange={(e) => setSearch(e.target.value)}
+            />
+          </div>
 
-                {/* Overlay rating badge (image) */}
-                {showStars && (
-                  <img
-                    src={`${import.meta.env.BASE_URL}images/devices/${device.category}/${device.id}/rating.png`}
-                    alt="Rating"
-                    className="absolute top-2 right-2 w-12 h-12 drop-shadow-md"
-                  />
-                )}
+         
 
-              </div>
+          <div className="flex items-center gap-2">
+            <Label>Max Price:</Label>
+            <Input
+              type="number"
+              className="w-32"
+              placeholder="No limit"
+              onChange={(e) => {
+                const value = Number(e.target.value);
+                setMaxPrice(isNaN(value) ? Infinity : value);
+              }}
+            />
 
-              {/* Device details: star + description + button */}
-              <div className="p-4 flex flex-col items-center text-center space-y-2">
-                <h3 className="text-lg font-semibold">{device.name}</h3>
-                {showStars && (
-                  <p className="text-sm text-yellow-600 font-medium">
-                    ⭐ {device.star} rating
-                  </p>
-                )}
-                <p className="text-sm text-green-700 font-semibold">${device.price.toFixed(2)}</p>
-                <p className="text-sm text-gray-600">{device.description}</p>
-                {/* Prevent click from bubbling up */}
-                <Button
-                  variant="outline"
-                  size="sm"
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    // 🔧 Here you can add to cart logic
-                    toast.success(`${device.name} added to cart`, {
-                      description: "Check your cart to review.",
-                    });
-                  }}
-                >
-                  ADD TO CART
-                </Button>
-              </div>
-            </CardContent>
-          </Card>
-        ))}
+            {/* Toggle switch to show/hide stars */}
+            {/* <input
+              type="checkbox"
+              checked={showStars}
+              onChange={toggleShowStars} // Use toggleShowStars function
+              className="w-10 h-5 rounded-full bg-gray-300 appearance-none checked:bg-green-500 relative transition-all duration-300
+                before:content-[''] before:absolute before:top-0.5 before:left-0.5 before:w-4 before:h-4 before:rounded-full before:bg-white
+                before:transition-all before:duration-300 checked:before:translate-x-5"
+            /> */}
+          </div>
+           {showStars && (
+            <div className="flex items-center gap-2">
+              <Label>Min Stars:</Label>
+              <select
+                title="Filter by minimum stars"
+                className="border px-2 py-1 border-gray-500 " 
+                value={minStars}
+                onChange={(e) => {
+                  const value = Number(e.target.value);
+                  setMinStars(value);
+                  posthog.capture("used_star_filter", { star: value });
+                }}
+              >
+                <option value={0}>All</option>
+                <option value={1}>1+</option>
+                <option value={2}>2+</option>
+                <option value={3}>3+</option>
+                <option value={4}>4+</option>
+                <option value={5}>5 only</option>
+              </select>
+            </div>
+          )}
+        </div>
+
+        {/* Grid of device cards */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-4">
+          {filtered.map((device, i) => (
+            <Card key={i}
+            className="cursor-pointer hover:shadow-lg transition bg-white text-black"
+            onClick={() => handleCardClick(device)}>
+              <CardContent className="relative p-0 overflow-hidden">
+                <div className="relative">
+                  {/* Main product image with AVIF fallback */}
+                  <picture>
+                    <source
+                      srcSet={`${import.meta.env.BASE_URL}images/devices/${device.category}/${device.id}/Product.jpg.avif`}
+                      type="image/avif"
+                    />
+                    <img
+                      src={`/${import.meta.env.BASE_URL}images/devices/${device.category}/${device.id}/Product.jpg`}
+                      alt={device.name}
+                      className="w-full aspect-[4/3] object-cover"
+                    />
+                  </picture>
+
+                  {/* Overlay rating badge (image) */}
+                  {showStars && (
+                    <img
+                      src={`${import.meta.env.BASE_URL}images/devices/${device.category}/${device.id}/rating.png`}
+                      alt="Rating"
+                      className="absolute top-2 right-2 w-12 h-12 drop-shadow-md"
+                    />
+                  )}
+
+                </div>
+
+                {/* Device details: star + description + button */}
+                <div className="p-4 flex flex-col items-center text-center space-y-2">
+                  <h3 className="text-lg font-semibold">{device.name}</h3>
+                  {showStars && (
+                    <p className="text-sm text-yellow-600 font-medium">
+                      ⭐ {device.star} rating
+                    </p>
+                  )}
+                  <p className="text-sm text-green-700 font-semibold">${device.price.toFixed(2)}</p>
+                  <p className="text-sm text-gray-600">{device.description}</p>
+                  {/* Prevent click from bubbling up */}
+                  <Button
+                    variant="outline"
+                    size="sm"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      addToCart(device);
+                    }}
+                  >
+                    ADD TO CART
+                  </Button>
+                </div>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
+
+        {/* Empty state */}
+        {filtered.length === 0 && (
+          <p className="text-sm text-gray-500 mt-4">
+            No matching devices found in {categoryName}.
+          </p>
+        )}
       </div>
-
-      {/* Empty state */}
-      {filtered.length === 0 && (
-        <p className="text-sm text-gray-500 mt-4">
-          No matching devices found in {categoryName}.
-        </p>
-      )}
     </div>
   );
 }
