@@ -1,4 +1,4 @@
-import { Wrench, Layers, RefreshCw, Leaf, Clock, Armchair } from "lucide-react";
+import { Wrench, Layers, RefreshCw, Clock, Armchair } from "lucide-react";
 
 const criteria = [
   {
