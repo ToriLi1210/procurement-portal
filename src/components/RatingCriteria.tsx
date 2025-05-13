@@ -17,7 +17,7 @@ const criteria = [
     description: "Incentives like trade-ins, take-back schemes, or responsible recycling partnerships contribute to this score."
   },
   {
-    icon: Leaf,
+    icon: Armchair,
     title: "Build Quality",
     description: "Devices with robust construction, high-quality materials, and proven durability are rated higher for their ability to withstand wear and tear over time."
   },
