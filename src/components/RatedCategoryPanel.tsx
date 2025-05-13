@@ -24,7 +24,7 @@ export default function RatedCategoryPanel({
   devices: Device[];
 }) {
   const navigate = useNavigate();
-  const [searchParams, setSearchParams] = useSearchParams();
+  //const [searchParams, setSearchParams] = useSearchParams();
 
   // State for search text input
   const [search, setSearch] = useState("");
