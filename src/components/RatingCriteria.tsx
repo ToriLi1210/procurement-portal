@@ -1,4 +1,4 @@
-import { Wrench, Layers, RefreshCw, Leaf, Clock } from "lucide-react";
+import { Wrench, Layers, RefreshCw, Leaf, Clock, Armchair } from "lucide-react";
 
 const criteria = [
   {
@@ -17,9 +17,9 @@ const criteria = [
     description: "Incentives like trade-ins, take-back schemes, or responsible recycling partnerships contribute to this score."
   },
   {
-    icon: Leaf,
-    title: "Energy Efficiency",
-    description: "Products certified with Energy Star, EPEAT Gold, or that demonstrate low power consumption during standby and active use are rated higher."
+    icon: Armchair,
+    title: "Build Quality",
+    description: "Devices with robust construction, high-quality materials, and proven durability are rated higher for their ability to withstand wear and tear over time."
   },
   {
     icon: Clock,
