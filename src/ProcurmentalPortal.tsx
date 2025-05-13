@@ -16,32 +16,33 @@ export default function ProcurementPortal({ showStars, setShowStars }: { showSta
     setSearchParams({ showStars: showStars ? "false" : "true" });
   };
 
+  // Update the ProcurementPortal layout to match the logo's aesthetic
   return (
-    <div className="min-h-screen p-6 space-y-6 flex flex-col items-center">
+    <div className="min-h-screen p-6 space-y-6 flex flex-col items-center bg-gradient-to-b from-white to-blue-100">
       <div className="w-full flex items-center justify-start">
-        <img src={`${import.meta.env.BASE_URL}images/unimelb.logo.jpg`} alt="Logo" className="h-10" />
+        <img src={`${import.meta.env.BASE_URL}images/Unimelb.logo.jpg`} alt="Logo" className="h-12" />
       </div>
-      <h1 className="text-3xl font-bold">E-Waste Sustainable Procurement Portal</h1>
-    
-      <div className="flex items-center gap-2"> {/* Flex container */}
-      <p>Show Ratings:</p>
+      <h1 className="text-4xl font-bold text-blue-900">E-Waste Sustainable Procurement Portal</h1>
+
+      <div className="flex items-center gap-2 bg-white p-4 rounded-lg shadow-md"> {/* Flex container */}
+      <p className="text-blue-900 font-medium">Show Ratings:</p>
       <input
         type="checkbox"
         title="Toggle star ratings visibility"
         checked={showStars}
         onChange={toggleShowStars}
-        className="w-10 h-5 rounded-full bg-gray-300 appearance-none checked:bg-green-500 relative transition-all duration-300
+        className="w-10 h-5 rounded-full bg-gray-300 appearance-none checked:bg-blue-500 relative transition-all duration-300
           before:content-[''] before:absolute before:top-0.5 before:left-0.5 before:w-4 before:h-4 before:rounded-full before:bg-white
           before:transition-all before:duration-300 checked:before:translate-x-5"
       />
     </div>
 
-      <Tabs defaultValue="rated" className="space-y-4 w-full max-w-5xl mx-auto">
-        <TabsList className="flex justify-center gap-4 border border-white p-2 rounded-lg">
-          <TabsTrigger value="rated">⭐ Rated Devices</TabsTrigger>
-          <TabsTrigger value="market">♻️ Marketplace</TabsTrigger>
-          <TabsTrigger value="submit">📤 Submit New Product</TabsTrigger>
-          <TabsTrigger value="criteria">📘 Rating Criteria</TabsTrigger>
+      <Tabs defaultValue="rated" className="space-y-4 w-full max-w-5xl mx-auto bg-white p-6 rounded-lg shadow-lg">
+        <TabsList className="flex justify-center gap-4 border border-blue-200 p-2 rounded-lg">
+          <TabsTrigger value="rated" className="text-blue-900">⭐ Rated Devices</TabsTrigger>
+          <TabsTrigger value="market" className="text-blue-900">♻️ Marketplace</TabsTrigger>
+          <TabsTrigger value="submit" className="text-blue-900">📤 Submit New Product</TabsTrigger>
+          <TabsTrigger value="criteria" className="text-blue-900">📘 Rating Criteria</TabsTrigger>
         </TabsList>
 
         <TabsContent value="rated">

@@ -41,7 +41,7 @@
   color: #888;
 }
 
-/* Add a CSS class for the star filling effect */
+/* Move inline styles for the star rating to external CSS */
 .star-rating-container {
   position: relative;
   width: 8rem; /* Adjust width as needed */
@@ -57,4 +57,46 @@
   left: 0;
   height: 100%;
   background-color: #facc15; /* Yellow fill */
+}
+
+/* Update global styles to match the logo's aesthetic */
+body {
+  font-family: 'Arial', sans-serif;
+  background: linear-gradient(to bottom, #ffffff, #e6f7ff);
+  color: #003366;
+  margin: 0;
+  padding: 0;
+}
+
+h1, h2, h3 {
+  font-family: 'Arial', sans-serif;
+  color: #003366;
+}
+
+button {
+  background-color: #003366;
+  color: #ffffff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #00509e;
+}
+
+input {
+  border: 1px solid #003366;
+  border-radius: 5px;
+  padding: 10px;
+  font-size: 14px;
+}
+
+.tabs {
+  background-color: #e6f7ff;
+  border-radius: 10px;
+  padding: 10px;
 }

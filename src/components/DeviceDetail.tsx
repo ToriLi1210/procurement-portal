@@ -36,15 +36,20 @@ export default function DeviceDetail({ showStars }: DeviceDetailProps) {
     return <p className="p-4 text-gray-600">Device not found.</p>;
   }
 
+  // Update the DeviceDetail layout to match the logo's aesthetic
   return (
-    <div className="p-6 max-w-5xl mx-auto space-y-8">
+    <div className="p-6 max-w-5xl mx-auto space-y-8 bg-gradient-to-b from-white to-blue-100">
       {/* Back Button */}
-      <Button onClick={() => navigate(-1)} variant="outline" className="mb-4">
+      <Button
+        onClick={() => navigate("/", { replace: true })}
+        variant="outline"
+        className="mb-4 text-blue-900 border-blue-900"
+      >
         ← Back
       </Button>
 
       {/* Device Header */}
-      <div className="flex flex-col md:flex-row items-center md:items-start gap-6">
+      <div className="flex flex-col md:flex-row items-center md:items-start gap-6 bg-white p-6 rounded-lg shadow-lg">
         {/* Image Section */}
         <div className="flex-shrink-0 w-full md:w-1/2">
           <picture>
@@ -65,7 +70,7 @@ export default function DeviceDetail({ showStars }: DeviceDetailProps) {
           {/* Organize device name, stars, and price into a more elegant layout */}
           <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
             {/* Device Name */}
-            <h1 className="text-4xl font-bold text-gray-800">{device.name}</h1>
+            <h1 className="text-4xl font-bold text-blue-900">{device.name}</h1>
 
             {/* Price */}
             <p className="text-green-700 text-2xl font-semibold">
@@ -90,7 +95,7 @@ export default function DeviceDetail({ showStars }: DeviceDetailProps) {
 
           {/* Description Section */}
           <div className="bg-gray-50 p-4 rounded-lg shadow-md">
-            <h2 className="text-xl font-semibold mb-2 text-gray-800">
+            <h2 className="text-xl font-semibold mb-2 text-blue-900">
               Description
             </h2>
             <p className="text-gray-700 text-base leading-relaxed">
@@ -103,7 +108,7 @@ export default function DeviceDetail({ showStars }: DeviceDetailProps) {
       {/* Specifications Table */}
       {showStars && (
         <div className="bg-white shadow-md rounded-lg p-6">
-          <h2 className="text-2xl font-semibold mb-4 text-gray-800">
+          <h2 className="text-2xl font-semibold mb-4 text-blue-900">
             Sustainability Specifications
           </h2>
           <table className="w-full border-collapse text-left">
