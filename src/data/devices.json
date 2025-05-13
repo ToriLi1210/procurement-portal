@@ -6,15 +6,27 @@
       "category": "keyboard",
       "description": "Magic Keyboard is available with Touch ID, providing fast, easy and secure authentication for logins and purchases.",
       "star": 3,
-      "price": 279
+      "price": 279,
+      "sustainabilityScore": 3,
+      "warranty": "1 year",
+      "repairability": "Moderate",
+      "modularity": "No",
+      "lifespan": "3 years",
+      "buildQuality": "High"
     },
     {
       "id": "LogitechKeyboard",
       "name": "Logitech Keyboard",
       "category": "keyboard",
-      "description": "Designed with speed and precision, the Logitech G915 X Low-Profile Wired Gaming Keyboard lets you achieve peak gaming performance. With customisable features, you can elevate your skills and add style to your setup.",
+      "description": "Designed with speed and precision, the Logitech G915 X Low-Profile Wired Gaming Keyboard lets you achieve peak gaming performance. With customizable features, you can elevate your skills and add style to your setup.",
       "star": 4,
-      "price": 298
+      "price": 298,
+      "sustainabilityScore": 4,
+      "warranty": "2 years",
+      "repairability": "High",
+      "modularity": "Full",
+      "lifespan": "4 years",
+      "buildQuality": "Very High"
     }
   ],
   "Laptop": [
@@ -22,17 +34,29 @@
       "id": "Acer",
       "name": "Acer",
       "category": "laptop",
-      "description": "Offering fast computing capabilities and ample storage, the Acer Aspire Lite 16 16-inch i5-1334U/8GB/512GB SSD Laptop can handle any task with ease. With a combination of style and function, this laptop can deliver an impressive experience.",
+      "description": "Offering fast computing capabilities and ample storage, the Acer Aspire Lite 16 16-inch i5-1334U/8GB/512GB SSD Laptop can handle any task with ease.",
       "star": 2.5,
-      "price": 698
+      "price": 698,
+      "sustainabilityScore": 2,
+      "warranty": "1 year",
+      "repairability": "Low",
+      "modularity": "Partial",
+      "lifespan": "4 years",
+      "buildQuality": "Medium"
     },
     {
       "id": "Lenovo",
       "name": "Lenovo",
       "category": "laptop",
-      "description": "With its 360° convertible setup, durable, drop-down hinge, powerful AMD Ryzen™ processor, and full-function Type-C™ port, the Lenovo IdeaPad Flex 5 is a practical and versatile workspace option that adapts and fits to your needs, moods, and environments.",
+      "description": "With its 360° convertible setup, durable, drop-down hinge, powerful AMD Ryzen™ processor, and full-function Type-C™ port, the Lenovo IdeaPad Flex 5 is a practical and versatile workspace option.",
       "star": 2,
-      "price": 1098
+      "price": 1098,
+      "sustainabilityScore": 2,
+      "warranty": "2 years",
+      "repairability": "Medium",
+      "modularity": "Partial",
+      "lifespan": "5 years",
+      "buildQuality": "High"
     }
   ],
   "Microwave": [
@@ -40,9 +64,15 @@
       "id": "LG",
       "name": "LG",
       "category": "microwave",
-      "description": "Making food preparation easy and convenient, the LG NeoChef 42L Smart Inverter Microwave Oven - Black offers a large capacity and versatile cooking modes. Featuring a sleek, modern exterior, it seamlessly blends well with your kitchen interiors.",
+      "description": "Making food preparation easy and convenient, the LG NeoChef 42L Smart Inverter Microwave Oven - Black offers a large capacity and versatile cooking modes.",
       "star": 4.5,
-      "price": 287
+      "price": 287,
+      "sustainabilityScore": 4,
+      "warranty": "1 year",
+      "repairability": "Moderate",
+      "modularity": "No",
+      "lifespan": "6 years",
+      "buildQuality": "Very High"
     },
     {
       "id": "Panasonic",
@@ -50,7 +80,13 @@
       "category": "microwave",
       "description": "With a flawless flatbed design meaning no turntable, a premium stainless steel finish and 16 cooking functions, this inverter microwave will tick all your boxes.",
       "star": 5,
-      "price": 359
+      "price": 359,
+      "sustainabilityScore": 5,
+      "warranty": "2 years",
+      "repairability": "Moderate",
+      "modularity": "Partial",
+      "lifespan": "7 years",
+      "buildQuality": "High"
     }
   ],
   "Monitor": [
@@ -58,35 +94,59 @@
       "id": "MSI",
       "name": "MSI",
       "category": "monitor",
-      "description": "With Adaptive Sync technology, a high refresh rate, and a fast response time, the MSI 27inch G27C4 E3 FHD 180HZ Curved Gaming Monitor effectively eliminates screen tearing and delivers seamless graphics, so you can enjoy smooth gaming even with intense, fast-paced scenes.",
+      "description": "With Adaptive Sync technology, a high refresh rate, and a fast response time, the MSI 27inch G27C4 E3 FHD 180HZ Curved Gaming Monitor effectively eliminates screen tearing.",
       "star": 3.2,
-      "price": 298
+      "price": 298,
+      "sustainabilityScore": 3,
+      "warranty": "1 year",
+      "repairability": "Low",
+      "modularity": "No",
+      "lifespan": "5 years",
+      "buildQuality": "Medium"
     },
     {
       "id": "Samsung",
       "name": "Samsung",
       "category": "monitor",
-      "description": "Immerse yourself in the world of high-quality visuals with the Samsung 27-inch S39C FHD Curved Monitor. Its curved display, high-resolution imagery, and impressive performance make it an excellent choice for gaming, multimedia entertainment, and everyday computing tasks. Experience a new level of visual immersion and enjoy stunning visuals with this feature-packed monitor.",
+      "description": "Immerse yourself in the world of high-quality visuals with the Samsung 27-inch S39C FHD Curved Monitor.",
       "star": 4.9,
-      "price": 248
+      "price": 248,
+      "sustainabilityScore": 5,
+      "warranty": "1 year",
+      "repairability": "Moderate",
+      "modularity": "Full",
+      "lifespan": "5 years",
+      "buildQuality": "High"
     }
   ],
-  "Scientificequipment": [
+  "ScientificEquipment": [
     {
       "id": "Batterymate",
       "name": "Batterymate",
       "category": "scientificequipment",
-      "description": "A versatile tool for electricians, technicians, and students, the BatteryMate XL830L Current New Tester Volt Meter Ohmmeter Ammeter AC/DC Digital Multimeter helps you get precise measurements with ease. With its easy-to-read LCD screen, overload protection, and durable design, this multimeter handles a variety of electrical tasks, from circuit testing to voltage and current measurement.",
+      "description": "A versatile tool for electricians and technicians, the BatteryMate XL830L helps you get precise measurements with ease.",
       "star": 2.5,
-      "price": 19.95
+      "price": 19.95,
+      "sustainabilityScore": 2,
+      "warranty": "1 year",
+      "repairability": "High",
+      "modularity": "Full",
+      "lifespan": "3 years",
+      "buildQuality": "Medium"
     },
     {
       "id": "DigitalVolt",
       "name": "Digital Volt",
       "category": "scientificequipment",
-      "description": "Measure a variety of power indicators to help prevent peak currents damaging battery, motors, wiring, ESC, and connectors with the Atem Power 200 AMP Digital Volt Watt Metre Caravan 4x4 Camping Solar 12V Ammeter.",
+      "description": "Measure a variety of power indicators to help prevent peak currents damaging components.",
       "star": 1.5,
-      "price": 40
+      "price": 40,
+      "sustainabilityScore": 1,
+      "warranty": "1 year",
+      "repairability": "Low",
+      "modularity": "No",
+      "lifespan": "2 years",
+      "buildQuality": "Low"
     }
   ]
 }

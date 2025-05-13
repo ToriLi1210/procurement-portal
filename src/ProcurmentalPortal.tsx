@@ -5,14 +5,13 @@ import RatingCriteria from "@/components/RatingCriteria";
 import RatedDevices from "@/components/RatedDevices";
 import { useSearchParams } from "react-router-dom";
 
-export default function ProcurementPortal() {
-  const [searchParams, setSearchParams] = useSearchParams();
-
-  // Determine initial value of showStars from URL
-  const showStars = searchParams.get("showStars") !== "false";
+// Define setShowStars as a prop in ProcurementPortal
+export default function ProcurementPortal({ showStars, setShowStars }: { showStars: boolean; setShowStars: React.Dispatch<React.SetStateAction<boolean>> }) {
+  const [, setSearchParams] = useSearchParams();
 
   // Update searchParams when showStars state changes
   const toggleShowStars = () => {
+    setShowStars((prev) => !prev);
     // Toggle the value of showStars in the query parameters
     setSearchParams({ showStars: showStars ? "false" : "true" });
   };
@@ -28,6 +27,7 @@ export default function ProcurementPortal() {
       <p>Show Ratings:</p>
       <input
         type="checkbox"
+        title="Toggle star ratings visibility"
         checked={showStars}
         onChange={toggleShowStars}
         className="w-10 h-5 rounded-full bg-gray-300 appearance-none checked:bg-green-500 relative transition-all duration-300
@@ -45,7 +45,8 @@ export default function ProcurementPortal() {
         </TabsList>
 
         <TabsContent value="rated">
-          <RatedDevices />
+          {/* Pass the showStars state to RatedDevices */}
+          <RatedDevices showStars={showStars} />
         </TabsContent>
         <TabsContent value="market">
           <Marketplace />

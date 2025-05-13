@@ -2,9 +2,9 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
-import { useState, useEffect } from "react"; 
+import { useState } from "react"; 
 import { toast } from "sonner";
-import { useNavigate, useSearchParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import posthog from "posthog-js";
 
 type Device = {
@@ -16,15 +16,17 @@ type Device = {
   price: number;
 };
 
+// Add showStars as a prop to RatedCategoryPanel
 export default function RatedCategoryPanel({
   categoryName,
   devices,
+  showStars,
 }: {
   categoryName: string;
   devices: Device[];
+  showStars: boolean;
 }) {
   const navigate = useNavigate();
-  const [searchParams, setSearchParams] = useSearchParams();
 
   // State for search text input
   const [search, setSearch] = useState("");
@@ -32,14 +34,6 @@ export default function RatedCategoryPanel({
   // State for minimum star rating filter and maximum price
   const [minStars, setMinStars] = useState(0);
   const [maxPrice, setMaxPrice] = useState(Infinity);
-  
-  // State for the showStars toggle
-  const [showStars, setShowStars] = useState(true);
-
-  // Update showStars whenever searchParams change
-  useEffect(() => {
-    setShowStars(searchParams.get("showStars") !== "false");
-  }, [searchParams]);
 
   // Filter devices by search term, minimum star rating, and maximum price
   const filtered = devices.filter(
@@ -59,11 +53,11 @@ export default function RatedCategoryPanel({
   };
 
   // Toggle logic for the showStars value
-  const toggleShowStars = () => {
-    const newShowStars = !showStars;
-    setShowStars(newShowStars);
-    setSearchParams({ showStars: newShowStars ? "true" : "false" });
-  };
+  // const toggleShowStars = () => {
+  //   const newShowStars = !showStars;
+  //   setShowStars(newShowStars);
+  //   setSearchParams({ showStars: newShowStars ? "true" : "false" });
+  // };
 
   return (
     <div>
@@ -107,6 +101,7 @@ export default function RatedCategoryPanel({
           <div className="flex items-center gap-2">
             <Label>Min Stars:</Label>
             <select
+              title="Filter by minimum stars"
               className="border px-2 py-1 border-gray-500 " 
               value={minStars}
               onChange={(e) => {

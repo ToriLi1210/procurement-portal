@@ -31,7 +31,7 @@ for (const key in rawData) {
 }
 
 
-export default function RatedDevices() {
+export default function RatedDevices({ showStars }: { showStars: boolean }) {
   return (
     <div className="space-y-4">
       <h2 className="text-xl font-semibold text-center">Rated Electronics by Category</h2>
@@ -45,7 +45,7 @@ export default function RatedDevices() {
 
         {Object.entries(deviceCategories).map(([cat, devices]) => (
           <TabsContent key={cat} value={cat}>
-            <RatedCategoryPanel categoryName={cat} devices={devices} />
+            <RatedCategoryPanel categoryName={cat} devices={devices} showStars={showStars} />
           </TabsContent>
         ))}
       </Tabs>
