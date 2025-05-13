@@ -76,6 +76,12 @@ export default function DeviceDetail({ showStars }: DeviceDetailProps) {
           {/* Stars */}
           {showStars && (
             <div className="flex items-center gap-2">
+              <div className="star-rating-container">
+                <div
+                  className="star-rating-fill"
+                  style={{ width: `${(device.star / 5) * 100}%` }}
+                ></div>
+              </div>
               <p className="text-yellow-600 font-medium text-lg">
                 ⭐ {device.star} rating
               </p>

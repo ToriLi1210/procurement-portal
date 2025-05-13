@@ -40,3 +40,21 @@
 .read-the-docs {
   color: #888;
 }
+
+/* Add a CSS class for the star filling effect */
+.star-rating-container {
+  position: relative;
+  width: 8rem; /* Adjust width as needed */
+  height: 1.5rem; /* Adjust height as needed */
+  background-color: #e5e7eb; /* Gray background */
+  border-radius: 9999px; /* Full rounding */
+  overflow: hidden;
+}
+
+.star-rating-fill {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  background-color: #facc15; /* Yellow fill */
+}
