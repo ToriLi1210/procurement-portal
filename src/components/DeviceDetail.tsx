@@ -17,7 +17,6 @@ type Device = {
   price: number;
 };
 
-// Update the props to accept showStars
 type DeviceDetailProps = {
   showStars: boolean;
 };
@@ -26,10 +25,8 @@ export default function DeviceDetail({ showStars }: DeviceDetailProps) {
   const { category, id } = useParams();
   const navigate = useNavigate();
 
-  // Fallback if route params are missing
   if (!category || !id) return <p>Invalid device path.</p>;
 
-  // Try to find the device in all categories
   const allDevices: Device[] = Object.values(rawData).flat();
   const device = allDevices.find(
     (d) => d.category === category.toLowerCase() && d.id === id
@@ -40,26 +37,16 @@ export default function DeviceDetail({ showStars }: DeviceDetailProps) {
   }
 
   return (
-    <div className="p-6 max-w-4xl mx-auto space-y-6">
-      <Button onClick={() => navigate(-1)} variant="outline">
+    <div className="p-6 max-w-5xl mx-auto space-y-8">
+      {/* Back Button */}
+      <Button onClick={() => navigate(-1)} variant="outline" className="mb-4">
         ← Back
       </Button>
 
-      <div className="flex flex-col md:flex-row space-x-4">
+      {/* Device Header */}
+      <div className="flex flex-col md:flex-row items-center md:items-start gap-6">
         {/* Image Section */}
         <div className="flex-shrink-0 w-full md:w-1/2">
-          <h1 className="text-3xl font-bold text-center">{device.name}</h1>
-
-         
-          {showStars && (
-            <div className="text-center">
-              <p className="text-yellow-600 font-medium">⭐ {device.star} rating</p>
-            </div>
-          )}
-          <div className="text-center">
-            <p className="text-green-700 font-semibold">${device.price.toFixed(2)}</p>
-          </div>
-
           <picture>
             <source
               srcSet={`${import.meta.env.BASE_URL}images/devices/${device.category}/${device.id}/Product.jpg.avif`}
@@ -68,49 +55,93 @@ export default function DeviceDetail({ showStars }: DeviceDetailProps) {
             <img
               src={`${import.meta.env.BASE_URL}images/devices/${device.category}/${device.id}/Product.jpg`}
               alt={device.name}
-              className="w-full rounded-lg object-cover aspect-[4/3]"
+              className="w-full rounded-lg object-cover aspect-[4/3] shadow-lg"
             />
           </picture>
         </div>
 
-        {/* Conditionally render specifications table */}
-        {showStars && (
-          <div className="md:w-1/3 p-4 bg-white shadow-md rounded-lg">
-            <h2 className="text-xl font-semibold mb-2">Specifications</h2>
-            <table className="min-w-full border-collapse">
-              <tbody>
-                <tr>
-                  <th className="border-b p-2 text-left">Sustainability Score</th>
-                  <td className="border-b p-2">{device.sustainabilityScore}</td>
-                </tr>
-                <tr>
-                  <th className="border-b p-2 text-left">Warranty</th>
-                  <td className="border-b p-2">{device.warranty}</td>
-                </tr>
-                <tr>
-                  <th className="border-b p-2 text-left">Repairability</th>
-                  <td className="border-b p-2">{device.repairability}</td>
-                </tr>
-                <tr>
-                  <th className="border-b p-2 text-left">Modularity</th>
-                  <td className="border-b p-2">{device.modularity}</td>
-                </tr>
-                <tr>
-                  <th className="border-b p-2 text-left">Lifespan</th>
-                  <td className="border-b p-2">{device.lifespan}</td>
-                </tr>
-                <tr>
-                  <th className="border-b p-2 text-left">Build Quality</th>
-                  <td className="border-b p-2">{device.buildQuality}</td>
-                </tr>
-              </tbody>
-            </table>
+        {/* Device Info */}
+        <div className="flex-grow space-y-4">
+          {/* Organize device name, stars, and price into a more elegant layout */}
+          <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+            {/* Device Name */}
+            <h1 className="text-4xl font-bold text-gray-800">{device.name}</h1>
+
+            {/* Price */}
+            <p className="text-green-700 text-2xl font-semibold">
+              ${device.price.toFixed(2)}
+            </p>
           </div>
-        )}
+
+          {/* Stars */}
+          {showStars && (
+            <div className="flex items-center gap-2">
+              <p className="text-yellow-600 font-medium text-lg">
+                ⭐ {device.star} rating
+              </p>
+            </div>
+          )}
+
+          {/* Description Section */}
+          <div className="bg-gray-50 p-4 rounded-lg shadow-md">
+            <h2 className="text-xl font-semibold mb-2 text-gray-800">
+              Description
+            </h2>
+            <p className="text-gray-700 text-base leading-relaxed">
+              {device.description}
+            </p>
+          </div>
+        </div>
       </div>
 
-      {/* Description below the table and img */}
-      <p className="text-gray-700 text-lg mt-6">{device.description}</p>
+      {/* Specifications Table */}
+      {showStars && (
+        <div className="bg-white shadow-md rounded-lg p-6">
+          <h2 className="text-2xl font-semibold mb-4 text-gray-800">
+            Sustainability Specifications
+          </h2>
+          <table className="w-full border-collapse text-left">
+            <tbody>
+              <tr>
+                <th className="border-b p-3 font-medium text-gray-600">
+                  Overall Score
+                </th>
+                <td className="border-b p-3">{device.sustainabilityScore}</td>
+              </tr>
+              <tr>
+                <th className="border-b p-3 font-medium text-gray-600">
+                  Warranty
+                </th>
+                <td className="border-b p-3">{device.warranty}</td>
+              </tr>
+              <tr>
+                <th className="border-b p-3 font-medium text-gray-600">
+                  Repairability
+                </th>
+                <td className="border-b p-3">{device.repairability}</td>
+              </tr>
+              <tr>
+                <th className="border-b p-3 font-medium text-gray-600">
+                  Modularity
+                </th>
+                <td className="border-b p-3">{device.modularity}</td>
+              </tr>
+              <tr>
+                <th className="border-b p-3 font-medium text-gray-600">
+                  Lifespan
+                </th>
+                <td className="border-b p-3">{device.lifespan}</td>
+              </tr>
+              <tr>
+                <th className="border-b p-3 font-medium text-gray-600">
+                  Build Quality
+                </th>
+                <td className="border-b p-3">{device.buildQuality}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      )}
     </div>
   );
 }
