@@ -59,11 +59,11 @@ export default function RatedCategoryPanel({
   };
 
   // Toggle logic for the showStars value
-  const toggleShowStars = () => {
-    const newShowStars = !showStars;
-    setShowStars(newShowStars);
-    setSearchParams({ showStars: newShowStars ? "true" : "false" });
-  };
+  // const toggleShowStars = () => {
+  //   const newShowStars = !showStars;
+  //   setShowStars(newShowStars);
+  //   setSearchParams({ showStars: newShowStars ? "true" : "false" });
+  // };
 
   return (
     <div>
