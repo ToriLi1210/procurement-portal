@@ -13,7 +13,6 @@ export type Device = {
   star: number;
   price: number;
   condition: string;
-  overallScore: number;
   warranty: string;
   repairability: string;
   modularity: string;
@@ -134,7 +133,7 @@ export default function DeviceDetail({ showStars }: { showStars: boolean }) {
                 <th className="border-b p-3 font-medium text-gray-600">
                   Overall Score
                 </th>
-                <td className="border-b p-3">{device.overallScore}</td>
+                <td className="border-b p-3">{device.star}</td>
               </tr>
               <tr>
                 <th className="border-b p-3 font-medium text-gray-600">
