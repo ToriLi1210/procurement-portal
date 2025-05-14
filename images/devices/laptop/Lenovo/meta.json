@@ -4,5 +4,10 @@
     ,
     "star": 2.0,
     "price":1098,
-    "condition": "Second Hand"
+    "condition": "Second Hand",
+    "warranty": "1 Year",
+    "buildquality": "Premium",
+    "repairability": "Easy",
+    "lifespan": "5 Years",
+    "modularity": "Low"
 }

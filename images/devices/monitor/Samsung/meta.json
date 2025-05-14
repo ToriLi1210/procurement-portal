@@ -4,5 +4,11 @@
     ,
     "star": 4.9,
     "price":248,
-    "condition": "Brand New"
+    "condition": "Brand New",
+    "warranty": "1 Year",
+    "buildquality": "Premium",
+    "repairability": "Easy",
+    "lifespan": "5 Years",
+    "modularity": "Low"
+    
 }
