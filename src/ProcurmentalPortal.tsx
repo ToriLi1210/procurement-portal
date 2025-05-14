@@ -42,7 +42,11 @@ export default function ProcurementPortal({
           <TabsTrigger value="rated" className="text-blue-900">⭐ Rated Devices</TabsTrigger>
           <TabsTrigger value="market" className="text-blue-900">♻️ Marketplace</TabsTrigger>
           <TabsTrigger value="submit" className="text-blue-900">📤 Submit New Product</TabsTrigger>
-          <TabsTrigger value="criteria" className="text-blue-900">📘 Rating Criteria</TabsTrigger>
+          {showStars && (
+            <TabsTrigger value="criteria" className="text-blue-900">
+              📘 Rating Criteria
+            </TabsTrigger>
+          )}
         </TabsList>
 
         <TabsContent value="rated">
