@@ -22,6 +22,7 @@ for (const category of readdirSync(baseDir)) {
       let description = "";
       let star = 0;
       let price = 0;
+      let condition = "";
       //  read meta.json
       if (existsSync(metaPath)) {
         try {
@@ -29,6 +30,7 @@ for (const category of readdirSync(baseDir)) {
           description = meta.description || "";
           star = meta.star || 0;
           price = meta.price ||0;
+          condition = meta.condition || "Brand New"
         } catch (err) {
           console.warn(`⚠️ Failed to parse meta.json for ${deviceId}: ${err.message}`);
         }
@@ -41,6 +43,7 @@ for (const category of readdirSync(baseDir)) {
         description,
         star,
         price,
+        condition,
       };
     });
   }

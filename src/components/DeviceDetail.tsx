@@ -15,6 +15,7 @@ type Device = {
   lifespan: string;
   buildQuality: string;
   price: number;
+  condition: string;
 };
 
 type DeviceDetailProps = {
@@ -70,7 +71,18 @@ export default function DeviceDetail({ showStars }: DeviceDetailProps) {
           {/* Organize device name, stars, and price into a more elegant layout */}
           <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
             {/* Device Name */}
-            <h1 className="text-4xl font-bold text-blue-900">{device.name}</h1>
+            <div className="flex items-center gap-3 flex-wrap">
+              <h1 className="text-4xl font-bold text-blue-900">{device.name}</h1>
+              <span
+                className={`text-xs font-semibold px-2.5 py-0.5 rounded ${
+                  device.condition === "Second Hand"
+                    ? "bg-red-100 text-red-800"
+                    : "bg-green-100 text-green-800"
+                }`}
+              >
+                {device.condition}
+              </span>
+            </div>
 
             {/* Price */}
             <p className="text-green-700 text-2xl font-semibold">
@@ -148,6 +160,12 @@ export default function DeviceDetail({ showStars }: DeviceDetailProps) {
                   Build Quality
                 </th>
                 <td className="border-b p-3">{device.buildQuality}</td>
+              </tr>
+              <tr>
+                <th className="border-b p-3 font-medium text-gray-600">
+                  Product Condition
+                </th>
+                <td className="border-b p-3">{device.condition}</td>
               </tr>
             </tbody>
           </table>

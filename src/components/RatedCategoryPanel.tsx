@@ -13,6 +13,8 @@ type Device = {
   description: string;
   star: number;
   price: number;
+  condition: "Brand New" | "Second Hand";
+
 };
 
 // Add cart and addToCart as props to RatedCategoryPanel
@@ -142,22 +144,21 @@ export default function RatedCategoryPanel({
             <Card key={i}
             className="cursor-pointer hover:shadow-lg transition bg-white text-black"
             onClick={() => handleCardClick(device)}>
-              <CardContent className="relative p-0 overflow-hidden">
+              <CardContent className="flex flex-col h-[550px] p-0 overflow-hidden">
+
                 <div className="relative">
-                  {/* Main product image with AVIF fallback */}
                   <picture>
                     <source
                       srcSet={`${import.meta.env.BASE_URL}images/devices/${device.category}/${device.id}/Product.jpg.avif`}
                       type="image/avif"
                     />
                     <img
-                      src={`/${import.meta.env.BASE_URL}images/devices/${device.category}/${device.id}/Product.jpg`}
+                      src={`${import.meta.env.BASE_URL}images/devices/${device.category}/${device.id}/Product.jpg`}
                       alt={device.name}
                       className="w-full aspect-[4/3] object-cover"
                     />
                   </picture>
 
-                  {/* Overlay rating badge (image) */}
                   {showStars && (
                     <img
                       src={`${import.meta.env.BASE_URL}images/devices/${device.category}/${device.id}/rating.png`}
@@ -165,20 +166,49 @@ export default function RatedCategoryPanel({
                       className="absolute top-2 right-2 w-12 h-12 drop-shadow-md"
                     />
                   )}
-
                 </div>
 
-                {/* Device details: star + description + button */}
-                <div className="p-4 flex flex-col items-center text-center space-y-2">
+
+                <div className="p-4 flex flex-col flex-grow text-center space-y-2">
                   <h3 className="text-lg font-semibold">{device.name}</h3>
+
+                  <div>
+                    <span
+                      className={`inline-block mt-1 px-2 py-0.5 rounded-full text-xs font-semibold ${
+                        device.condition === "Second Hand"
+                          ? "bg-red-100 text-red-800"
+                          : "bg-green-100 text-green-800"
+                      }`}
+                    >
+                      {device.condition}
+                    </span>
+                  </div>
+
                   {showStars && (
                     <p className="text-sm text-yellow-600 font-medium">
                       ⭐ {device.star} rating
                     </p>
                   )}
-                  <p className="text-sm text-green-700 font-semibold">${device.price.toFixed(2)}</p>
-                  <p className="text-sm text-gray-600">{device.description}</p>
-                  {/* Prevent click from bubbling up */}
+
+                  <p className="text-sm text-green-700 font-semibold">
+                    ${device.price.toFixed(2)}
+                  </p>
+
+                  <p className="text-sm text-gray-600 min-h-[60px]">
+                    {device.description.slice(0, 300)}...
+                    <button
+                      className="text-blue-600 hover:underline ml-1"
+                      onClick={(e) => {
+                        e.stopPropagation(); 
+                        navigate(`/devices/${device.category}/${device.id}`);
+                      }}
+                    >
+                      More details
+                    </button>
+                  </p>
+
+                  <div className="flex-grow" />
+
                   <Button
                     variant="outline"
                     size="sm"
@@ -190,7 +220,9 @@ export default function RatedCategoryPanel({
                     ADD TO CART
                   </Button>
                 </div>
+
               </CardContent>
+
             </Card>
           ))}
         </div>
