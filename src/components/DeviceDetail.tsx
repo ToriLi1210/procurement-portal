@@ -131,12 +131,6 @@ export default function DeviceDetail({ showStars }: { showStars: boolean }) {
             <tbody>
               <tr>
                 <th className="border-b p-3 font-medium text-gray-600">
-                  Overall Score
-                </th>
-                <td className="border-b p-3">{device.star}</td>
-              </tr>
-              <tr>
-                <th className="border-b p-3 font-medium text-gray-600">
                   Warranty
                 </th>
                 <td className="border-b p-3">{device.warranty}</td>
