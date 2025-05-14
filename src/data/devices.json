@@ -7,15 +7,51 @@
       "description": "Magic Keyboard is available with Touch ID, providing fast, easy and secure authentication for logins and purchases.",
       "star": 3,
       "price": 279,
+      "condition": "Brand New"
+    },
+    {
+      "id": "DasKeyboard",
+      "name": "Das Keyboard",
+      "category": "keyboard",
+      "description": "SIMPLICITY IS THE NEW SOPHISTICATION - The new Das Keyboard 4 root edition is the essence of simplicity: superior craftsmanship, iconic design, perfected, stripped down to the essentials, everything you need to type at the speed of thought. It build's on the success and award-winning design of our Das Keyboard 4 Professional but now with a USB 2.0 hub and braided cable.",
+      "star": 3,
+      "price": 189,
       "condition": "Second Hand"
     },
     {
-      "id": "LogitechKeyboard",
-      "name": "Logitech Keyboard",
+      "id": "DellMultimediaKeyboard",
+      "name": "Dell Multimedia Keyboard",
       "category": "keyboard",
-      "description": "Designed with speed and precision, the Logitech G915 X Low-Profile Wired Gaming Keyboard lets you achieve peak gaming performance. With customisable features, you can elevate your skills and add style to your setup.",
+      "description": "Enhance your productivity with the Dell Multimedia Corbed Keyboard. This sleek, black membrane keyboard features chiclet-style keys for comfortable and responsive typing. The USB 2.0 connection provides a quick and reliable link to your computer. Weighing just 420g, the compact 127mm x 442mm x 24mm dimensions mean this keyboard is ideal for any workspace. The one-year Dell warranty provides peace of mind. With its full QWERTY layout and membrane key switches, this keyboard makes typing easier than ever. The manufacturer's part number for this product is 580-AHHG. So get more done with the Dell Multimedia Corded Keyboard today! ",
+      "star": 3,
+      "price": 22,
+      "condition": "Second Hand"
+    },
+    {
+      "id": "HP350CompactWirelessMulti-DeviceKeyboard",
+      "name": "HP350 Compact Wireless Multi-Device Keyboard",
+      "category": "keyboard",
+      "description": "The HP 350 Wireless Multi-Device Keyboard combines desktop productivity with compact portability wherever you are with functionalities like Bluetooth 5.2, multi-pair and shortcuts. Its ultra-portable design means you can take it anywhere for that satisfying typing experience that stays with you. Enjoy the full satisfaction of standard-sized keycaps and smart shortcuts, with the option to customise Fn combinations for efficiency.",
       "star": 4,
-      "price": 298,
+      "price": 59,
+      "condition": "Brand New"
+    },
+    {
+      "id": "LogitechK780Multi-DeviceWirelessKeyboard",
+      "name": "Logitech K780 Multi-Device Wireless Keyboard",
+      "category": "keyboard",
+      "description": "Meet K780, a compact keyboard that’s designed for today's multi-tasking era. Compatible with up to three devices, you can switch typing between your phone, tablet, and computer in one easy flow.",
+      "star": 4,
+      "price": 129,
+      "condition": "Brand New"
+    },
+    {
+      "id": "Microsoft600WiredKeyboard",
+      "name": "Microsoft600 Wired Keyboard",
+      "category": "keyboard",
+      "description": "Crafted with slim, responsive keys, the Microsoft 600 Wired Keyboard helps boost your productivity at work, so you can finish your tasks with ease.",
+      "star": 3,
+      "price": 29,
       "condition": "Brand New"
     }
   ],
@@ -44,9 +80,9 @@
       "id": "LG",
       "name": "LG",
       "category": "microwave",
-      "description": "Making food preparation easy and convenient, the LG NeoChef 42L Smart Inverter Microwave Oven - Black offers a large capacity and versatile cooking modes. Featuring a sleek, modern exterior, it seamlessly blends well with your kitchen interiors.",
+      "description": "Magic Keyboard delivers a remarkably comfortable and precise typing experience. It’s also wireless and rechargeable, with an incredibly long-lasting internal battery that’ll power your keyboard for about a month or more between charges.¹ It pairs automatically with your Mac, so you can get to work straight away. And it includes a woven USB-C to Lightning Cable that lets you pair and charge by connecting to a USB-C port on your Mac.",
       "star": 4.5,
-      "price": 287,
+      "price": 149,
       "condition": "Brand New"
     },
     {

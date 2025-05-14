@@ -2,6 +2,9 @@ import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 import RatedCategoryPanel from "@/components/RatedCategoryPanel";
 import { useState } from "react";
 import { toast } from "react-toastify";
+import { useSearchParams } from "react-router-dom";
+
+
 
 type Device = {
   id: string;
@@ -36,7 +39,8 @@ for (const key in rawData) {
 export default function RatedDevices({ showStars }: { showStars: boolean }) {
   // Lift the cart state to RatedDevices
   const [cart, setCart] = useState<Device[]>([]);
-
+  const [searchParams, setSearchParams] = useSearchParams();
+  const currentTab = searchParams.get("tab") || "Laptop";
   // Function to add items to the cart
   const addToCart = (device: Device) => {
     setCart((prevCart) => [...prevCart, device]);
@@ -51,7 +55,11 @@ export default function RatedDevices({ showStars }: { showStars: boolean }) {
         Rated Electronics by Category
       </h2>
 
-      <Tabs defaultValue="Laptop" className="space-y-2">
+      <Tabs
+        value={currentTab}
+        onValueChange={(value) => setSearchParams({ tab: value })}
+        className="space-y-2"
+      >
         <TabsList className="overflow-x-auto flex gap-2">
           {Object.keys(deviceCategories).map((cat) => (
             <TabsTrigger key={cat} value={cat}>

@@ -1,4 +1,4 @@
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams, useNavigate,useLocation } from "react-router-dom";
 import rawData from "@/data/devices.json";
 import { Button } from "@/components/ui/button";
 
@@ -41,6 +41,8 @@ type DeviceDetailProps = {
 export default function DeviceDetail({ showStars }: DeviceDetailProps) {
   const { category, id } = useParams();
   const navigate = useNavigate();
+  const location = useLocation();
+  const fromTab = location.state?.fromTab || "Laptop";  
 
   if (!category || !id) return <p>Invalid device path.</p>;
 
@@ -58,7 +60,7 @@ export default function DeviceDetail({ showStars }: DeviceDetailProps) {
     <div className="p-6 max-w-5xl mx-auto space-y-8 bg-gradient-to-b from-white to-blue-100">
       {/* Back Button */}
       <Button
-        onClick={() => navigate("/", { replace: true })}
+        onClick={() => navigate(`/?tab=${fromTab}`)}
         variant="outline"
         className="mb-4 text-blue-900 border-blue-900"
       >

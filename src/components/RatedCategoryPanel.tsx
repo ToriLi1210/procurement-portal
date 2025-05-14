@@ -48,13 +48,16 @@ export default function RatedCategoryPanel({
       d.price <= maxPrice
   );
 
-  const handleCardClick = (device: Device) => {
+    const handleCardClick = (device: Device) => {
     posthog.capture("clicked_device_card", {
       name: device.name,
       category: device.category,
       star: device.star,
     });
-    navigate(`/devices/${device.category}/${device.id}`);
+
+    navigate(`/devices/${device.category}/${device.id}`, {
+      state: { fromTab: categoryName } 
+    });
   };
 
   return (
@@ -103,16 +106,6 @@ export default function RatedCategoryPanel({
                 setMaxPrice(isNaN(value) ? Infinity : value);
               }}
             />
-
-            {/* Toggle switch to show/hide stars */}
-            {/* <input
-              type="checkbox"
-              checked={showStars}
-              onChange={toggleShowStars} // Use toggleShowStars function
-              className="w-10 h-5 rounded-full bg-gray-300 appearance-none checked:bg-green-500 relative transition-all duration-300
-                before:content-[''] before:absolute before:top-0.5 before:left-0.5 before:w-4 before:h-4 before:rounded-full before:bg-white
-                before:transition-all before:duration-300 checked:before:translate-x-5"
-            /> */}
           </div>
            {showStars && (
             <div className="flex items-center gap-2">
@@ -170,7 +163,9 @@ export default function RatedCategoryPanel({
 
 
                 <div className="p-4 flex flex-col flex-grow text-center space-y-2">
-                  <h3 className="text-lg font-semibold">{device.name}</h3>
+                 <h3 className="text-lg font-semibold min-h-[48px] flex items-center justify-center text-center">
+                  {device.name}
+                </h3>
 
                   <div>
                     <span
@@ -195,7 +190,7 @@ export default function RatedCategoryPanel({
                   </p>
 
                   <p className="text-sm text-gray-600 min-h-[60px]">
-                    {device.description.slice(0, 300)}...
+                    {device.description.slice(0, 200)}...
                     <button
                       className="text-blue-600 hover:underline ml-1"
                       onClick={(e) => {

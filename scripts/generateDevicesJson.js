@@ -59,7 +59,8 @@ console.log("✅ devices.json has been generated at src/data/devices.json");
 function capitalize(s) {
   return s.charAt(0).toUpperCase() + s.slice(1);
 }
-
 function insertSpaces(str) {
-  return str.replace(/([a-z])([A-Z])/g, "$1 $2");
+  return str
+    .replace(/([a-z])([A-Z])/g, "$1 $2")     // camelCase → camel Case
+    .replace(/(\d)([a-zA-Z])/g, "$1 $2");    // digit followed by letter → space
 }
