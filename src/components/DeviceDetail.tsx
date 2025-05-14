@@ -25,18 +25,9 @@ export type Device = {
 // Map the raw data directly to the `allDevices` list
 const allDevices = Object.values(rawData).flat() as Array<Device>;
 
-// Ensure `DeviceDetailProps` includes the additional attributes
-export type DeviceDetailProps = {
-  showStars: boolean;
-  sustainabilityScore: number;
-  warranty: string;
-  repairability: string;
-  modularity: string;
-  lifespan: string;
-  buildQuality: string;
-};
 
-export default function DeviceDetail({ showStars }: DeviceDetailProps) {
+
+export default function DeviceDetail({ showStars }: { showStars: boolean }) {
   const { category, id } = useParams();
   const navigate = useNavigate();
 
