@@ -2,21 +2,37 @@ import { useParams, useNavigate } from "react-router-dom";
 import rawData from "@/data/devices.json";
 import { Button } from "@/components/ui/button";
 
+
+
 type Device = {
   id: string;
   name: string;
   category: string;
   description: string;
   star: number;
+  price: number;
+  condition: string;
+};
+
+
+const allDevices = Object.values(rawData)
+  .flat()
+  .map((d) => ({
+    ...d,
+    sustainabilityScore: 0,
+    warranty: "Unknown",
+    repairability: "Unknown",
+    modularity: "Unknown",
+    lifespan: "Unknown",
+    buildQuality: "Unknown",
+  })) as Array<Device & {
   sustainabilityScore: number;
   warranty: string;
   repairability: string;
   modularity: string;
   lifespan: string;
   buildQuality: string;
-  price: number;
-  condition: string;
-};
+}>;
 
 type DeviceDetailProps = {
   showStars: boolean;
@@ -28,7 +44,7 @@ export default function DeviceDetail({ showStars }: DeviceDetailProps) {
 
   if (!category || !id) return <p>Invalid device path.</p>;
 
-  const allDevices: Device[] = Object.values(rawData).flat();
+
   const device = allDevices.find(
     (d) => d.category === category.toLowerCase() && d.id === id
   );

@@ -13,7 +13,7 @@ type Device = {
   description: string;
   star: number;
   price: number;
-  condition: "Brand New" | "Second Hand";
+  condition: string;
 
 };
 
