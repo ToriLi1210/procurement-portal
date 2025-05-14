@@ -16,7 +16,10 @@ export default function LoginGate({ onAccess }: { onAccess: (showRating: boolean
 
   return (
     <div className="min-h-screen flex flex-col justify-center items-center bg-gray-100 p-6">
-      <h1 className="text-2xl font-bold mb-4">Enter Access Password</h1>
+      <h1 className="text-2xl font-bold mb-2">Welcome to our prototype test</h1>
+        <p className="text-gray-700 mb-4 text-center">
+        Please enter the access password to continue.
+        </p>
       <input
         type="password"
         className="border p-2 rounded w-64 mb-2"
