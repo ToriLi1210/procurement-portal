@@ -7,7 +7,13 @@
       "description": "Magic Keyboard is available with Touch ID, providing fast, easy and secure authentication for logins and purchases.",
       "star": 3,
       "price": 279,
-      "condition": "Brand New"
+      "condition": "Brand New",
+      "overallScore": 0,
+      "warranty": "1 Year",
+      "repairability": "Easy",
+      "modularity": "Low",
+      "lifespan": "5 Years",
+      "buildQuality": "Medium"
     },
     {
       "id": "DasKeyboard",
@@ -16,7 +22,13 @@
       "description": "SIMPLICITY IS THE NEW SOPHISTICATION - The new Das Keyboard 4 root edition is the essence of simplicity: superior craftsmanship, iconic design, perfected, stripped down to the essentials, everything you need to type at the speed of thought. It build's on the success and award-winning design of our Das Keyboard 4 Professional but now with a USB 2.0 hub and braided cable.",
       "star": 3,
       "price": 189,
-      "condition": "Second Hand"
+      "condition": "Second Hand",
+      "overallScore": 0,
+      "warranty": "1 year",
+      "repairability": "Moderate",
+      "modularity": "Partial",
+      "lifespan": "3 years",
+      "buildQuality": "Medium"
     },
     {
       "id": "DellMultimediaKeyboard",
@@ -25,7 +37,13 @@
       "description": "Enhance your productivity with the Dell Multimedia Corbed Keyboard. This sleek, black membrane keyboard features chiclet-style keys for comfortable and responsive typing. The USB 2.0 connection provides a quick and reliable link to your computer. Weighing just 420g, the compact 127mm x 442mm x 24mm dimensions mean this keyboard is ideal for any workspace. The one-year Dell warranty provides peace of mind. With its full QWERTY layout and membrane key switches, this keyboard makes typing easier than ever. The manufacturer's part number for this product is 580-AHHG. So get more done with the Dell Multimedia Corded Keyboard today! ",
       "star": 3,
       "price": 22,
-      "condition": "Second Hand"
+      "condition": "Second Hand",
+      "overallScore": 0,
+      "warranty": "1 year",
+      "repairability": "Moderate",
+      "modularity": "Partial",
+      "lifespan": "3 years",
+      "buildQuality": "Medium"
     },
     {
       "id": "HP350CompactWirelessMulti-DeviceKeyboard",
@@ -34,7 +52,13 @@
       "description": "The HP 350 Wireless Multi-Device Keyboard combines desktop productivity with compact portability wherever you are with functionalities like Bluetooth 5.2, multi-pair and shortcuts. Its ultra-portable design means you can take it anywhere for that satisfying typing experience that stays with you. Enjoy the full satisfaction of standard-sized keycaps and smart shortcuts, with the option to customise Fn combinations for efficiency.",
       "star": 4,
       "price": 59,
-      "condition": "Brand New"
+      "condition": "Brand New",
+      "overallScore": 0,
+      "warranty": "1 year",
+      "repairability": "Moderate",
+      "modularity": "Partial",
+      "lifespan": "3 years",
+      "buildQuality": "Medium"
     },
     {
       "id": "LogitechK780Multi-DeviceWirelessKeyboard",
@@ -43,7 +67,13 @@
       "description": "Meet K780, a compact keyboard that’s designed for today's multi-tasking era. Compatible with up to three devices, you can switch typing between your phone, tablet, and computer in one easy flow.",
       "star": 4,
       "price": 129,
-      "condition": "Brand New"
+      "condition": "Brand New",
+      "overallScore": 0,
+      "warranty": "1 Year",
+      "repairability": "Easy",
+      "modularity": "Low",
+      "lifespan": "5 Years",
+      "buildQuality": "Medium"
     },
     {
       "id": "Microsoft600WiredKeyboard",
@@ -52,7 +82,13 @@
       "description": "Crafted with slim, responsive keys, the Microsoft 600 Wired Keyboard helps boost your productivity at work, so you can finish your tasks with ease.",
       "star": 3,
       "price": 29,
-      "condition": "Brand New"
+      "condition": "Brand New",
+      "overallScore": 0,
+      "warranty": "1 year",
+      "repairability": "Moderate",
+      "modularity": "Partial",
+      "lifespan": "3 years",
+      "buildQuality": "Medium"
     }
   ],
   "Laptop": [
@@ -63,7 +99,13 @@
       "description": "Offering fast computing capabilities and ample storage, the Acer Aspire Lite 16 16-inch i5-1334U/8GB/512GB SSD Laptop can handle any task with ease. With a combination of style and function, this laptop can deliver an impressive experience.",
       "star": 2.5,
       "price": 698,
-      "condition": "Second Hand"
+      "condition": "Second Hand",
+      "overallScore": 0,
+      "warranty": "1 Year",
+      "repairability": "Easy",
+      "modularity": "Low",
+      "lifespan": "5 Years",
+      "buildQuality": "Medium"
     },
     {
       "id": "Lenovo",
@@ -72,7 +114,13 @@
       "description": "With its 360° convertible setup, durable, drop-down hinge, powerful AMD Ryzen™ processor, and full-function Type-C™ port, the Lenovo IdeaPad Flex 5 is a practical and versatile workspace option that adapts and fits to your needs, moods, and environments.",
       "star": 2,
       "price": 1098,
-      "condition": "Second Hand"
+      "condition": "Second Hand",
+      "overallScore": 0,
+      "warranty": "1 Year",
+      "repairability": "Easy",
+      "modularity": "Low",
+      "lifespan": "5 Years",
+      "buildQuality": "Medium"
     }
   ],
   "Microwave": [
@@ -82,8 +130,14 @@
       "category": "microwave",
       "description": "Magic Keyboard delivers a remarkably comfortable and precise typing experience. It’s also wireless and rechargeable, with an incredibly long-lasting internal battery that’ll power your keyboard for about a month or more between charges.¹ It pairs automatically with your Mac, so you can get to work straight away. And it includes a woven USB-C to Lightning Cable that lets you pair and charge by connecting to a USB-C port on your Mac.",
       "star": 4.5,
-      "price": 149,
-      "condition": "Brand New"
+      "price": 287,
+      "condition": "Brand New",
+      "overallScore": 0,
+      "warranty": "1 Year",
+      "repairability": "Easy",
+      "modularity": "Low",
+      "lifespan": "5 Years",
+      "buildQuality": "Medium"
     },
     {
       "id": "Panasonic",
@@ -92,7 +146,13 @@
       "description": "With a flawless flatbed design meaning no turntable, a premium stainless steel finish and 16 cooking functions, this inverter microwave will tick all your boxes.",
       "star": 5,
       "price": 359,
-      "condition": "Brand New"
+      "condition": "Brand New",
+      "overallScore": 0,
+      "warranty": "1 Year",
+      "repairability": "Easy",
+      "modularity": "Low",
+      "lifespan": "5 Years",
+      "buildQuality": "Medium"
     }
   ],
   "Monitor": [
@@ -103,7 +163,13 @@
       "description": "With Adaptive Sync technology, a high refresh rate, and a fast response time, the MSI 27inch G27C4 E3 FHD 180HZ Curved Gaming Monitor effectively eliminates screen tearing and delivers seamless graphics, so you can enjoy smooth gaming even with intense, fast-paced scenes.",
       "star": 3.2,
       "price": 298,
-      "condition": "Brand New"
+      "condition": "Brand New",
+      "overallScore": 0,
+      "warranty": "1 Year",
+      "repairability": "Easy",
+      "modularity": "Low",
+      "lifespan": "5 Years",
+      "buildQuality": "Medium"
     },
     {
       "id": "Samsung",
@@ -112,7 +178,13 @@
       "description": "Immerse yourself in the world of high-quality visuals with the Samsung 27-inch S39C FHD Curved Monitor. Its curved display, high-resolution imagery, and impressive performance make it an excellent choice for gaming, multimedia entertainment, and everyday computing tasks. Experience a new level of visual immersion and enjoy stunning visuals with this feature-packed monitor.",
       "star": 4.9,
       "price": 248,
-      "condition": "Brand New"
+      "condition": "Brand New",
+      "overallScore": 0,
+      "warranty": "1 Year",
+      "repairability": "Easy",
+      "modularity": "Low",
+      "lifespan": "5 Years",
+      "buildQuality": "Medium"
     }
   ],
   "Scientificequipment": [
@@ -123,7 +195,13 @@
       "description": "A versatile tool for electricians, technicians, and students, the BatteryMate XL830L Current New Tester Volt Meter Ohmmeter Ammeter AC/DC Digital Multimeter helps you get precise measurements with ease. With its easy-to-read LCD screen, overload protection, and durable design, this multimeter handles a variety of electrical tasks, from circuit testing to voltage and current measurement.",
       "star": 2.5,
       "price": 19.95,
-      "condition": "Brand New"
+      "condition": "Brand New",
+      "overallScore": 0,
+      "warranty": "1 Year",
+      "repairability": "Easy",
+      "modularity": "Low",
+      "lifespan": "5 Years",
+      "buildQuality": "Medium"
     },
     {
       "id": "DigitalVolt",
@@ -132,7 +210,13 @@
       "description": "Measure a variety of power indicators to help prevent peak currents damaging battery, motors, wiring, ESC, and connectors with the Atem Power 200 AMP Digital Volt Watt Metre Caravan 4x4 Camping Solar 12V Ammeter.",
       "star": 1.5,
       "price": 40,
-      "condition": "Brand New"
+      "condition": "Brand New",
+      "overallScore": 0,
+      "warranty": "1 Year",
+      "repairability": "Easy",
+      "modularity": "Low",
+      "lifespan": "5 Years",
+      "buildQuality": "Medium"
     }
   ]
 }

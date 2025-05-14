@@ -4,7 +4,8 @@ import { Button } from "@/components/ui/button";
 
 
 
-type Device = {
+// Adjust the `Device` type to match the raw data structure
+export type Device = {
   id: string;
   name: string;
   category: string;
@@ -12,33 +13,20 @@ type Device = {
   star: number;
   price: number;
   condition: string;
-};
-
-
-const allDevices = Object.values(rawData)
-  .flat()
-  .map((d) => ({
-    ...d,
-    sustainabilityScore: 0,
-    warranty: "Unknown",
-    repairability: "Unknown",
-    modularity: "Unknown",
-    lifespan: "Unknown",
-    buildQuality: "Unknown",
-  })) as Array<Device & {
-  sustainabilityScore: number;
   warranty: string;
   repairability: string;
   modularity: string;
   lifespan: string;
   buildQuality: string;
-}>;
-
-type DeviceDetailProps = {
-  showStars: boolean;
 };
 
-export default function DeviceDetail({ showStars }: DeviceDetailProps) {
+
+// Map the raw data directly to the `allDevices` list
+const allDevices = Object.values(rawData).flat() as Array<Device>;
+
+
+
+export default function DeviceDetail({ showStars }: { showStars: boolean }) {
   const { category, id } = useParams();
   const navigate = useNavigate();
   const location = useLocation();
@@ -143,12 +131,6 @@ export default function DeviceDetail({ showStars }: DeviceDetailProps) {
           </h2>
           <table className="w-full border-collapse text-left">
             <tbody>
-              <tr>
-                <th className="border-b p-3 font-medium text-gray-600">
-                  Overall Score
-                </th>
-                <td className="border-b p-3">{device.sustainabilityScore}</td>
-              </tr>
               <tr>
                 <th className="border-b p-3 font-medium text-gray-600">
                   Warranty

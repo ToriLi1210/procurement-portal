@@ -23,14 +23,28 @@ for (const category of readdirSync(baseDir)) {
       let star = 0;
       let price = 0;
       let condition = "";
+      // Add additional attributes to the generated JSON
+      let overallScore = 0;
+      let warranty = "1 year";
+      let repairability = "Moderate";
+      let modularity = "Partial";
+      let lifespan = "3 years";
+      let buildQuality = "Medium";
+
       //  read meta.json
       if (existsSync(metaPath)) {
         try {
           const meta = JSON.parse(readFileSync(metaPath, "utf-8"));
           description = meta.description || "";
           star = meta.star || 0;
-          price = meta.price ||0;
-          condition = meta.condition || "Brand New"
+          price = meta.price || 0;
+          condition = meta.condition || "Brand New";
+          overallScore = meta.overallScore || 0;
+          warranty = meta.warranty || "1 year";
+          repairability = meta.repairability || "Moderate";
+          modularity = meta.modularity || "Partial";
+          lifespan = meta.lifespan || "3 years";
+          buildQuality = meta.buildQuality || "Medium";
         } catch (err) {
           console.warn(`⚠️ Failed to parse meta.json for ${deviceId}: ${err.message}`);
         }
@@ -44,6 +58,12 @@ for (const category of readdirSync(baseDir)) {
         star,
         price,
         condition,
+        overallScore,
+        warranty,
+        repairability,
+        modularity,
+        lifespan,
+        buildQuality,
       };
     });
   }
