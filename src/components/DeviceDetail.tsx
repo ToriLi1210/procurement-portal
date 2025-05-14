@@ -4,7 +4,8 @@ import { Button } from "@/components/ui/button";
 
 
 
-type Device = {
+// Adjust the `Device` type to match the raw data structure
+export type Device = {
   id: string;
   name: string;
   category: string;
@@ -12,30 +13,27 @@ type Device = {
   star: number;
   price: number;
   condition: string;
+  overallScore: number;
+  warranty: string;
+  repairability: string;
+  modularity: string;
+  lifespan: string;
+  buildQuality: string;
 };
 
 
-const allDevices = Object.values(rawData)
-  .flat()
-  .map((d) => ({
-    ...d,
-    sustainabilityScore: 0,
-    warranty: "Unknown",
-    repairability: "Unknown",
-    modularity: "Unknown",
-    lifespan: "Unknown",
-    buildQuality: "Unknown",
-  })) as Array<Device & {
+// Map the raw data directly to the `allDevices` list
+const allDevices = Object.values(rawData).flat() as Array<Device>;
+
+// Ensure `DeviceDetailProps` includes the additional attributes
+export type DeviceDetailProps = {
+  showStars: boolean;
   sustainabilityScore: number;
   warranty: string;
   repairability: string;
   modularity: string;
   lifespan: string;
   buildQuality: string;
-}>;
-
-type DeviceDetailProps = {
-  showStars: boolean;
 };
 
 export default function DeviceDetail({ showStars }: DeviceDetailProps) {
@@ -145,7 +143,7 @@ export default function DeviceDetail({ showStars }: DeviceDetailProps) {
                 <th className="border-b p-3 font-medium text-gray-600">
                   Overall Score
                 </th>
-                <td className="border-b p-3">{device.sustainabilityScore}</td>
+                <td className="border-b p-3">{device.overallScore}</td>
               </tr>
               <tr>
                 <th className="border-b p-3 font-medium text-gray-600">
