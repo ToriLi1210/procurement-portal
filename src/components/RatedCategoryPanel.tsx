@@ -144,7 +144,7 @@ export default function RatedCategoryPanel({
             <Card key={i}
             className="cursor-pointer hover:shadow-lg transition bg-white text-black"
             onClick={() => handleCardClick(device)}>
-              <CardContent className="flex flex-col h-[550px] p-0 overflow-hidden">
+              <CardContent className="flex flex-col h-[580px] p-0 overflow-hidden">
 
                 <div className="relative">
                   <picture>

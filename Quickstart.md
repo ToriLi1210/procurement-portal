@@ -9,7 +9,6 @@ This guide helps you (or your teammates) get the project up and running locally,
 ```bash
 git clone https://github.com/torili1210/procurement-portal.git
 cd procurement-portal
-```
 
 ---
 
@@ -64,7 +63,9 @@ Example `meta.json`:
 {
   "description": "Energy-efficient laptop for students",
   "star": 4,
-  "price": 899
+  "price": 899,
+  "condition":"Brand New",
+
 }
 ```
 
@@ -83,11 +84,22 @@ src/data/devices.json
 ```
 
 ---
+For live deployment, push to `main` and GitHub Actions will auto-deploy to:
 
 ## ✅ Done!
 
 You're now ready to explore, test, and modify the procurement portal.
 
-For live deployment, push to `main` and GitHub Actions will auto-deploy to:
+### 🚀 Deployment Notes
 
-🔗 [https://torili1210.github.io/procurement-portal/](https://torili1210.github.io/procurement-portal/)
+This project uses **GitHub Actions** for automatic deployment.
+
+Whenever you push to the `main` branch, a GitHub Actions workflow will:
+
+- install dependencies
+- build the project
+- deploy the `dist/` folder to the `gh-pages` branch
+
+No need to run `npm run deploy` manually.
+
+🔗 Production URL: [https://torili1210.github.io/procurement-portal/](https://torili1210.github.io/procurement-portal/)
