@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import ProcurementPortal from './ProcurmentalPortal';
 import DeviceDetail from './components/DeviceDetail'; 
@@ -14,7 +14,7 @@ function App() {
     return localStorage.getItem("authenticated") === "true";
   });
 
-  const handleAccess = (showRating) => {
+  const handleAccess = (showRating:boolean) => {
     setShowStars(showRating);
     setAuthenticated(true);
     localStorage.setItem("authenticated", "true");
