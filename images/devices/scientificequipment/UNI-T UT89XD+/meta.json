@@ -1,0 +1,12 @@
+{
+  "description": "Reliable mid-range model with sufficient features. True RMS, NCV detection, diode and continuity testing, backlight, data hold.",
+  "star": 4,
+  "price": 50,
+  "condition": "Second Hand",
+  "overallScore": 65,
+    "warranty": "2 Years",
+    "repairability": "Moderate",
+    "modularity": "Moderate",
+    "lifespan": "5-7 Years",
+    "buildQuality": "High"
+}
