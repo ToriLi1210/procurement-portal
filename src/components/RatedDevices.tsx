@@ -1,3 +1,4 @@
+// ✅ DeviceCategoryTabs.tsx
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 import RatedCategoryPanel from "@/components/RatedCategoryPanel";
 import { useSearchParams } from "react-router-dom";
@@ -5,8 +6,7 @@ import { useEffect } from "react";
 import type { Device } from "@/components/DeviceCard";
 import rawDataJson from "@/data/devices.json";
 
-type DeviceDataMap = Record<string, Device[]>;
-
+// Map from rawData keys to category names
 const categoryLabelMap: Record<string, string> = {
   Laptops: "Laptop",
   Monitor: "Monitor",
@@ -15,15 +15,15 @@ const categoryLabelMap: Record<string, string> = {
   Scientificequipment: "Scientific Equipment",
 };
 
-const rawData: DeviceDataMap = rawDataJson;
+// Device data map
+const rawData: Record<string, Device[]> = rawDataJson;
 
-const mapDeviceCategories = (devices: Device[], conditionFilter?: string) => {
+// Organize and filter raw data by condition
+const mapDeviceCategories = (conditionFilter?: string) => {
   const mapped: Record<string, Device[]> = {};
   for (const key in rawData) {
     const label = categoryLabelMap[key] || key;
-    mapped[label] = rawData[key].filter(d =>
-      !conditionFilter || d.condition === conditionFilter
-    );
+    mapped[label] = rawData[key].filter(d => !conditionFilter || d.condition === conditionFilter);
   }
   return mapped;
 };
@@ -33,7 +33,7 @@ export default function DeviceCategoryTabs({
   cart,
   addToCart,
   title,
-  urlKey = "tab", // eg: "ratedTab", "marketTab"
+  urlKey = "tab",
   conditionFilter,
 }: {
   showStars: boolean;
@@ -44,11 +44,10 @@ export default function DeviceCategoryTabs({
   conditionFilter?: "Brand New" | "Second Hand";
 }) {
   const [searchParams, setSearchParams] = useSearchParams();
-  const deviceCategories = mapDeviceCategories(Object.values(rawData).flat(), conditionFilter);
+  const deviceCategories = mapDeviceCategories(conditionFilter);
   const defaultTab = Object.keys(deviceCategories)[0];
   const currentTab = searchParams.get(urlKey) || defaultTab;
 
-  // ✅ 只保留当前 urlKey，不保留其他 query
   useEffect(() => {
     if (!searchParams.get(urlKey)) {
       const next = new URLSearchParams();
