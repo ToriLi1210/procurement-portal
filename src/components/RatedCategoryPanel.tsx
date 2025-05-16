@@ -64,7 +64,7 @@ export default function RatedCategoryPanel({
   return (
     <div className="relative">
       {/* Cart Display */}
-      <div className="fixed top-4 right-4 bg-white shadow-lg rounded-lg p-4 w-64 z-50">
+      {/* <div className="fixed top-4 right-4 bg-white shadow-lg rounded-lg p-4 w-64 z-50">
         <h3 className="text-lg font-semibold mb-2">Cart</h3>
         {cart.length > 0 ? (
           <ul className="space-y-2">
@@ -82,7 +82,7 @@ export default function RatedCategoryPanel({
         ) : (
           <p className="text-sm text-gray-500">Your cart is empty.</p>
         )}
-      </div>
+      </div> */}
 
       {/* Filters */}
       <div className="flex items-center gap-4 mt-4 flex-wrap">

@@ -6,6 +6,7 @@ import { Device } from "./components/DeviceCard";
 import { useState, useEffect } from "react";
 import DeviceCategoryTabs from "@/components/RatedDevices";
 import { useSearchParams } from "react-router-dom";
+import { X } from "lucide-react";
 
 export default function ProcurementPortal({
   showStars,
@@ -50,6 +51,14 @@ export default function ProcurementPortal({
     });
   };
 
+  const removeFromCart = (deviceToRemove: Device) => {
+    setCart((prev) => {
+      const newCart = prev.filter((item) => item.id !== deviceToRemove.id);
+      localStorage.setItem("cart", JSON.stringify(newCart));
+      return newCart;
+    });
+  };
+
   return (
     <div className="min-h-screen p-6 space-y-6 flex flex-col items-center bg-gradient-to-b from-white to-blue-100">
       <div className="w-full flex justify-start">
@@ -65,8 +74,38 @@ export default function ProcurementPortal({
         E-Waste Sustainable Procurement Portal
       </h1>
 
+      {/* Cart UI */}
+      <div className="fixed top-4 right-4 bg-white shadow-lg rounded-lg p-4 w-64 z-50">
+        <h3 className="text-lg font-semibold mb-2">Cart</h3>
+        {cart.length > 0 ? (
+          <ul className="space-y-2">
+            {cart.map((item) => (
+              <li key={item.id} className="flex justify-between items-center">
+                <span className="text-sm text-gray-700">{item.name}</span>
+                <div className="flex items-center gap-2">
+                  <span className="text-sm text-green-700">
+                    {item.condition === "Second Hand"
+                      ? "Free"
+                      : `$${item.price.toFixed(2)}`}
+                  </span>
+                  <button
+                    onClick={() => removeFromCart(item)}
+                    className="text-red-500 hover:text-red-700"
+                    title="Remove"
+                  >
+                    <X size={16} />
+                  </button>
+                </div>
+              </li>
+            ))}
+          </ul>
+        ) : (
+          <p className="text-sm text-gray-500">Your cart is empty.</p>
+        )}
+      </div>
+
       <Tabs
-        defaultValue={defaultMainTab} // ✅ use URL to control active tab
+        defaultValue={defaultMainTab}
         className="space-y-4 w-full max-w-5xl mx-auto bg-white p-6 rounded-lg shadow-lg"
       >
         <TabsList className="flex justify-center gap-4 border border-blue-200 p-2 rounded-lg">

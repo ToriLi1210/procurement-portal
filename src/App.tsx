@@ -23,10 +23,11 @@ function App() {
   };
 
   const handleLogout = () => {
-    setAuthenticated(false);
-    localStorage.removeItem("authenticated");
-    localStorage.removeItem("showStars");
-  };
+  localStorage.removeItem("authenticated");
+  localStorage.removeItem("showStars");
+  localStorage.removeItem("cart"); 
+  setAuthenticated(false);
+};
 
   if (!authenticated) {
     return <LoginGate onAccess={handleAccess} />;
