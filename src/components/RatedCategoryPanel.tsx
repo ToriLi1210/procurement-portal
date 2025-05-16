@@ -5,6 +5,8 @@ import { Label } from "@/components/ui/label";
 // import { useNavigate } from "react-router-dom";
 import posthog from "posthog-js";
 import DeviceCard, { Device } from "@/components/DeviceCard";
+import { useNavigate } from "react-router-dom"; // Make sure this is uncommented
+
 
 interface RatedCategoryPanelProps {
   categoryName: string;
@@ -34,17 +36,19 @@ export default function RatedCategoryPanel({
       d.price <= maxPrice
   );
 
-  //   const handleCardClick = (device: Device) => {
-  //   posthog.capture("clicked_device_card", {
-  //     name: device.name,
-  //     category: device.category,
-  //     star: device.star,
-  //   });
+  const navigate = useNavigate();
 
-  //   navigate(`/devices/${device.category}/${device.id}`, {
-  //     state: { fromTab: categoryName } 
-  //   });
-  // };
+  const handleCardClick = (device: Device) => {
+    posthog.capture("clicked_device_card", {
+      name: device.name,
+      category: device.category,
+      star: device.star,
+    });
+
+    navigate(`/devices/${device.category}/${device.id}`, {
+      state: { fromTab: categoryName }, // ⭐ Pass tab info here
+    });
+  };
 
   return (
     <div className="relative">
@@ -126,6 +130,7 @@ export default function RatedCategoryPanel({
             device={device}
             showStars={showStars}
             onAddToCart={addToCart}
+            onDetail={() => handleCardClick(device)} 
           />
         ))}
       </div>

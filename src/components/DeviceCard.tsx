@@ -1,7 +1,7 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { useNavigate } from "react-router-dom";
-import posthog from "posthog-js";
+// import { useNavigate } from "react-router-dom";
+// import posthog from "posthog-js";
 
 export type Device = {
   id: string;
@@ -17,25 +17,27 @@ export default function DeviceCard({
   device,
   showStars,
   onAddToCart,
+  onDetail,
 }: {
   device: Device;
   showStars?: boolean;
   onAddToCart: (device: Device) => void;
+  onDetail:(device: Device) => void;
 }) {
-  const navigate = useNavigate();
+//   const navigate = useNavigate();
 
-  const handleClick = () => {
-    posthog.capture("clicked_device_card", {
-      name: device.name,
-      category: device.category,
-      star: device.star,
-    });
-    navigate(`/devices/${device.category}/${device.id}`);
-  };
+// //   const handleClick = () => {
+// //     posthog.capture("clicked_device_card", {
+// //       name: device.name,
+// //       category: device.category,
+// //       star: device.star,
+// //     });
+// //     navigate(`/devices/${device.category}/${device.id}`);
+// //   };
 
   return (
     <Card className="cursor-pointer hover:shadow-lg transition bg-white text-black">
-      <CardContent className="flex flex-col h-[550px] p-0 overflow-hidden" onClick={handleClick}>
+      <CardContent className="flex flex-col h-[560px] p-0 overflow-hidden">
         <div className="relative">
           <picture>
             <source
@@ -58,7 +60,7 @@ export default function DeviceCard({
         </div>
 
         <div className="p-4 flex flex-col flex-grow text-center space-y-2">
-          <h3 className="text-lg font-semibold min-h-[48px]">
+          <h3 className="text-lg font-semibold min-h-[55px]">
             {device.name}
           </h3>
 
@@ -69,9 +71,7 @@ export default function DeviceCard({
                 : "bg-green-100 text-green-800"
             }`}
           >
-            {device.condition === "Second Hand"
-                ? "Free " + device.condition
-                : device.condition}
+                {device.condition}
           </span>
 
           {showStars && (
@@ -80,15 +80,24 @@ export default function DeviceCard({
             </p>
           )}
 
-          {device.condition === "Second Hand" && (
+          {device.condition === "Brand New" && (
             <p className="text-sm text-green-700 font-semibold">
                 ${device.price.toFixed(2)}
             </p>
           )}
 
           <p className="text-sm text-gray-600 flex-grow">
-            {device.description.slice(0, 200)}...
-          </p>
+            {device.description.slice(0, 150)}...
+            <button
+                onClick={(e) => {
+                e.stopPropagation()
+                onDetail(device)
+                }}
+                className="ml-1 text-blue-600 hover:underline"
+            >
+                More details
+            </button>
+        </p>
 
           <Button
             variant="outline"
