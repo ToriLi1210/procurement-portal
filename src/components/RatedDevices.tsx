@@ -1,7 +1,6 @@
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 import RatedCategoryPanel from "@/components/RatedCategoryPanel";
-import { useState } from "react";
-import { toast } from "react-toastify";
+
 import { useSearchParams } from "react-router-dom";
 
 
@@ -36,18 +35,26 @@ for (const key in rawData) {
   deviceCategories[label] = rawData[key];
 }
 
-export default function RatedDevices({ showStars }: { showStars: boolean }) {
+export default function RatedDevices({
+  showStars,
+  cart,
+  addToCart,
+}: {
+  showStars: boolean;
+  cart: Device[];
+  addToCart: (device: Device) => void;
+}) {
   // Lift the cart state to RatedDevices
-  const [cart, setCart] = useState<Device[]>([]);
+  // const [cart, setCart] = useState<Device[]>([]);
   const [searchParams, setSearchParams] = useSearchParams();
   const currentTab = searchParams.get("tab") || "Laptop";
   // Function to add items to the cart
-  const addToCart = (device: Device) => {
-    setCart((prevCart) => [...prevCart, device]);
-    toast.success(`${device.name} added to cart`, {
-      toastId: "cart-toast",
-    });
-  };
+  // const addToCart = (device: Device) => {
+  //   setCart((prevCart) => [...prevCart, device]);
+  //   toast.success(`${device.name} added to cart`, {
+  //     toastId: "cart-toast",
+  //   });
+  // };
 
   return (
     <div className="space-y-4">

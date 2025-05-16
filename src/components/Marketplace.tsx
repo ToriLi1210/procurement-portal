@@ -1,25 +1,50 @@
-import { Card, CardContent } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
+import DeviceCard, { Device } from "@/components/DeviceCard";
+import devicesData from "@/data/devices.json";
 
-const items = ["Monitor", "Printer", "Desktop Tower"];
+export default function Marketplace({
+  cart,
+  addToCart,
+}: {
+  cart: Device[];
+  addToCart: (device: Device) => void;
+}) {
+  const allDevices: Device[] = Object.values(devicesData)
+    .flat()
+    .filter((d) => d.condition === "Second Hand");
 
-export default function Marketplace() {
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-      {items.map((item, i) => (
-        <Card key={i}>
-          <CardContent className="space-y-2 p-4">
-            <img
-              src={`https://via.placeholder.com/300x180?text=${item}`}
-              alt={item}
-              className="rounded w-full object-cover"
-            />
-            <h2 className="text-lg font-semibold">{item} (Available)</h2>
-            <p className="text-sm text-gray-600">From: Engineering Faculty</p>
-            <Button variant="outline" size="sm">Claim</Button>
-          </CardContent>
-        </Card>
-      ))}
+    <div className="relative">
+      <div className="fixed top-4 right-4 bg-white shadow-lg rounded-lg p-4 w-64 z-50">
+        <h3 className="text-lg font-semibold mb-2">Cart</h3>
+        {cart.length > 0 ? (
+          <ul className="space-y-2">
+            {cart.map((item, index) => (
+              <li key={index} className="flex justify-between items-center">
+                <span className="text-sm text-gray-700">{item.name}</span>
+                <span className="text-sm text-green-700">
+                  {item.condition === "Second Hand"
+                    ? "Free"
+                    : `$${item.price.toFixed(2)}`}
+                </span>
+
+              </li>
+            ))}
+          </ul>
+        ) : (
+          <p className="text-sm text-gray-500">Your cart is empty.</p>
+        )}
+      </div>
+
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        {allDevices.map((device, i) => (
+          <DeviceCard
+            key={i}
+            device={device}
+            showStars={false}
+            onAddToCart={addToCart}
+          />
+        ))}
+      </div>
     </div>
   );
 }

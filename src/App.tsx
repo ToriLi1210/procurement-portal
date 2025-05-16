@@ -4,6 +4,7 @@ import ProcurementPortal from './ProcurmentalPortal';
 import DeviceDetail from './components/DeviceDetail'; 
 import LoginGate from './components/LoginGate';
 
+
 function App() {
   const [showStars, setShowStars] = useState(() => {
     const stored = localStorage.getItem("showStars");
@@ -33,8 +34,16 @@ function App() {
 
   return (
     <Routes>
-      <Route path="/" element={<ProcurementPortal showStars={showStars} onLogout={handleLogout} />} />
-      <Route path="/devices/:category/:id" element={<DeviceDetail showStars={showStars} />} />
+      <Route
+        path="/"
+        element={
+          <ProcurementPortal showStars={showStars} onLogout={handleLogout} />
+        }
+      />
+      <Route
+        path="/devices/:category/:id"
+        element={<DeviceDetail showStars={showStars} />}
+      />
     </Routes>
   );
 }

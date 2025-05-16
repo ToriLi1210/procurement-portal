@@ -131,9 +131,15 @@ export default function DeviceDetail({ showStars }: { showStars: boolean }) {
       {/* Specifications Table */}
       {showStars && (
         <div className="bg-white shadow-md rounded-lg p-6">
+          <img
+            src={`${import.meta.env.BASE_URL}images/starrating/${device.star} Stars.png`}
+            alt={`${device.star} star rating`}
+            className="w-24 h-auto mx-auto drop-shadow-md"
+          />
           <h2 className="text-2xl font-semibold mb-4 text-blue-900">
             Sustainability Specifications
           </h2>
+     
           <table className="w-full border-collapse text-left">
             <tbody>
               <tr>

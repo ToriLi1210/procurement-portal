@@ -3,7 +3,8 @@ import Marketplace from "@/components/Marketplace";
 import SubmitProduct from "@/components/SubmitProduct";
 import RatingCriteria from "@/components/RatingCriteria";
 import RatedDevices from "@/components/RatedDevices";
-// import { useSearchParams } from "react-router-dom";
+import { Device } from "./components/DeviceCard";
+import { useState } from "react";
 
 // Define setShowStars as a prop in ProcurementPortal
 export default function ProcurementPortal({
@@ -14,6 +15,8 @@ export default function ProcurementPortal({
   onLogout: () => void;
 }) {
 
+  const [cart, setCart] = useState<Device[]>([]);
+  const addToCart = (device: Device) => setCart((prev) => [...prev, device]);
 
   // // Update searchParams when showStars state changes
   // const toggleShowStars = () => {
@@ -50,11 +53,10 @@ export default function ProcurementPortal({
         </TabsList>
 
         <TabsContent value="rated">
-          {/* Pass the showStars state to RatedDevices */}
-          <RatedDevices showStars={showStars} />
+          <RatedDevices showStars={showStars} cart={cart} addToCart={addToCart} />
         </TabsContent>
-        <TabsContent value="market">
-          <Marketplace />
+       <TabsContent value="market">
+          <Marketplace cart={cart} addToCart={addToCart} />
         </TabsContent>
         <TabsContent value="submit">
           <SubmitProduct />
