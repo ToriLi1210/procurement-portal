@@ -92,8 +92,14 @@ export default function RatedCategoryPanel({
             className="w-32"
             placeholder="No limit"
             onChange={(e) => {
-              const value = Number(e.target.value);
-              setMaxPrice(isNaN(value) ? Infinity : value);
+              const input = e.target.value;
+              const value = Number(input);
+
+              if (input.trim() === "") {
+                setMaxPrice(Infinity); 
+              } else if (!isNaN(value)) {
+                setMaxPrice(value); 
+              }
             }}
           />
         </div>
