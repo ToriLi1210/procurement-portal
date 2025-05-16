@@ -1,24 +1,11 @@
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 import RatedCategoryPanel from "@/components/RatedCategoryPanel";
-
 import { useSearchParams } from "react-router-dom";
-
-
-
-type Device = {
-  id: string;
-  name: string;
-  category: string;
-  description: string;
-  star: number;
-  price: number;
-  condition: string;
-};
+import { useEffect } from "react";
+import type { Device } from "@/components/DeviceCard";
+import rawDataJson from "@/data/devices.json";
 
 type DeviceDataMap = Record<string, Device[]>;
-
-import rawDataJson from "@/data/devices.json";
-const rawData: DeviceDataMap = rawDataJson;
 
 const categoryLabelMap: Record<string, string> = {
   Laptops: "Laptop",
@@ -28,43 +15,61 @@ const categoryLabelMap: Record<string, string> = {
   Scientificequipment: "Scientific Equipment",
 };
 
-const deviceCategories: Record<string, Device[]> = {};
+const rawData: DeviceDataMap = rawDataJson;
 
-for (const key in rawData) {
-  const label = categoryLabelMap[key] || key;
-  deviceCategories[label] = rawData[key];
-}
+const mapDeviceCategories = (devices: Device[], conditionFilter?: string) => {
+  const mapped: Record<string, Device[]> = {};
+  for (const key in rawData) {
+    const label = categoryLabelMap[key] || key;
+    mapped[label] = rawData[key].filter(d =>
+      !conditionFilter || d.condition === conditionFilter
+    );
+  }
+  return mapped;
+};
 
-export default function RatedDevices({
+export default function DeviceCategoryTabs({
   showStars,
   cart,
   addToCart,
+  title,
+  urlKey = "tab", // eg: "ratedTab", "marketTab"
+  conditionFilter,
 }: {
   showStars: boolean;
   cart: Device[];
   addToCart: (device: Device) => void;
+  title: string;
+  urlKey?: string;
+  conditionFilter?: "Brand New" | "Second Hand";
 }) {
-  // Lift the cart state to RatedDevices
-  // const [cart, setCart] = useState<Device[]>([]);
   const [searchParams, setSearchParams] = useSearchParams();
-  const currentTab = searchParams.get("tab") || "Laptop";
-  // Function to add items to the cart
-  // const addToCart = (device: Device) => {
-  //   setCart((prevCart) => [...prevCart, device]);
-  //   toast.success(`${device.name} added to cart`, {
-  //     toastId: "cart-toast",
-  //   });
-  // };
+  const deviceCategories = mapDeviceCategories(Object.values(rawData).flat(), conditionFilter);
+  const defaultTab = Object.keys(deviceCategories)[0];
+  const currentTab = searchParams.get(urlKey) || defaultTab;
+
+  // ✅ 只保留当前 urlKey，不保留其他 query
+  useEffect(() => {
+    if (!searchParams.get(urlKey)) {
+      const next = new URLSearchParams();
+      next.set(urlKey, defaultTab);
+      setSearchParams(next, { replace: true });
+    }
+  }, [searchParams, setSearchParams, urlKey, defaultTab]);
+
+  if (!currentTab) return null;
 
   return (
     <div className="space-y-4">
-      <h2 className="text-xl font-semibold text-center">
-        Rated Electronics by Category
-      </h2>
+      <h2 className="text-xl font-semibold text-center">{title}</h2>
 
       <Tabs
         value={currentTab}
-        onValueChange={(value) => setSearchParams({ tab: value })}
+        onValueChange={(value) => {
+          const next = new URLSearchParams();
+          next.set(urlKey, value);
+          setSearchParams(next);
+        }}
         className="space-y-2"
       >
         <TabsList className="overflow-x-auto flex gap-2">
@@ -77,38 +82,15 @@ export default function RatedDevices({
 
         {Object.entries(deviceCategories).map(([cat, devices]) => (
           <TabsContent key={cat} value={cat}>
-            <div className="relative">
-              {/* Hanging Cart */}
-              <div className="fixed top-4 right-4 bg-white shadow-lg rounded-lg p-4 w-64 z-50">
-                <h3 className="text-lg font-semibold mb-2">Cart</h3>
-                {cart.length > 0 ? (
-                  <ul className="space-y-2">
-                    {cart.map((item, index) => (
-                      <li
-                        key={index}
-                        className="flex justify-between items-center"
-                      >
-                        <span className="text-sm text-gray-700">{item.name}</span>
-                        <span className="text-sm text-green-700">
-                          ${item.price.toFixed(2)}
-                        </span>
-                      </li>
-                    ))}
-                  </ul>
-                ) : (
-                  <p className="text-sm text-gray-500">Your cart is empty.</p>
-                )}
-              </div>
-
-              {/* Pass cart and addToCart to RatedCategoryPanel */}
-              <RatedCategoryPanel
-                categoryName={cat}
-                devices={devices}
-                showStars={showStars}
-                cart={cart}
-                addToCart={addToCart}
-              />
-            </div>
+            <RatedCategoryPanel
+              categoryName={cat}
+              devices={devices}
+              showStars={showStars}
+              cart={cart}
+              addToCart={addToCart}
+              conditionFilter={conditionFilter}
+              fromMainTab={urlKey === "marketTab" ? "market" : "rated"}
+            />
           </TabsContent>
         ))}
       </Tabs>

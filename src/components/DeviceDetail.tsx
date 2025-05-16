@@ -1,6 +1,7 @@
-import { useParams, useNavigate,useLocation } from "react-router-dom";
+import { useParams, useNavigate,useSearchParams } from "react-router-dom";
 import rawData from "@/data/devices.json";
 import { Button } from "@/components/ui/button";
+
 
 
 
@@ -29,8 +30,12 @@ const allDevices = Object.values(rawData).flat() as Array<Device>;
 export default function DeviceDetail({ showStars }: { showStars: boolean }) {
   const { category, id } = useParams();
   const navigate = useNavigate();
-  const location = useLocation();
-  const fromTab = location.state?.fromTab || "Laptop";  
+
+  const [searchParams] = useSearchParams();
+  const fromMainTab = window.location.hash === "#market" ? "market" : "rated";
+  const fromTab = searchParams.get(fromMainTab === "market" ? "marketTab" : "ratedTab") || "Laptop";
+
+
 
   if (!category || !id) return <p>Invalid device path.</p>;
 
@@ -47,13 +52,23 @@ export default function DeviceDetail({ showStars }: { showStars: boolean }) {
 
     return <p className="p-4 text-gray-600">Device not found.</p>;
   }
+  
 
   // Update the DeviceDetail layout to match the logo's aesthetic
   return (
     <div className="p-6 max-w-5xl mx-auto space-y-8 bg-gradient-to-b from-white to-blue-100">
       {/* Back Button */}
       <Button
-        onClick={() => navigate(`/?tab=${fromTab}`)}
+        onClick={() => {
+            
+            console.log("fromMainTab :",fromMainTab)
+            console.log("fromTab :",fromTab);
+
+            
+             const search = new URLSearchParams();
+              search.set(fromMainTab === "market" ? "marketTab" : "ratedTab", fromTab);
+              navigate(`/?${search.toString()}#${fromMainTab}`);
+          }}
         variant="outline"
         className="mb-4 text-blue-900 border-blue-900"
       >

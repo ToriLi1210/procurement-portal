@@ -14,6 +14,8 @@ interface RatedCategoryPanelProps {
   showStars: boolean;
   cart: Device[];
   addToCart: (device: Device) => void;
+  conditionFilter?: "Brand New" | "Second Hand"; 
+  fromMainTab: "rated" | "market";
 }
 export default function RatedCategoryPanel({
   categoryName,
@@ -21,6 +23,8 @@ export default function RatedCategoryPanel({
   showStars,
   cart,
   addToCart,
+  conditionFilter,
+  fromMainTab
 }: RatedCategoryPanelProps) 
  {
   // const navigate = useNavigate();
@@ -30,25 +34,32 @@ export default function RatedCategoryPanel({
 
   const filtered = devices.filter(
     (d) =>
-      d.condition === "Brand New" &&
+      (!conditionFilter || d.condition === conditionFilter) &&
       d.name.toLowerCase().includes(search.toLowerCase()) &&
       d.star >= minStars &&
       d.price <= maxPrice
   );
+  const addToCartAndPersist = (device: Device) => {
+    const newCart = [...cart, device];
+    addToCart(device); // 更新 React 状态
+    localStorage.setItem("cart", JSON.stringify(newCart)); // 同步本地存储
+  };
 
   const navigate = useNavigate();
 
   const handleCardClick = (device: Device) => {
-    posthog.capture("clicked_device_card", {
-      name: device.name,
-      category: device.category,
-      star: device.star,
-    });
+  posthog.capture("clicked_device_card", {
+    name: device.name,
+    category: device.category,
+    star: device.star,
+  });
 
-    navigate(`/devices/${device.category}/${device.id}`, {
-      state: { fromTab: categoryName }, // ⭐ Pass tab info here
-    });
-  };
+  const tabKey = fromMainTab === "market" ? "marketTab" : "ratedTab";
+  const params = new URLSearchParams({ [tabKey]: categoryName });
+
+  navigate(`/devices/${device.category}/${device.id}?${params.toString()}#${fromMainTab}`);
+};
+
 
   return (
     <div className="relative">
@@ -135,8 +146,8 @@ export default function RatedCategoryPanel({
             key={i}
             device={device}
             showStars={showStars}
-            onAddToCart={addToCart}
-            onDetail={() => handleCardClick(device)} 
+            onAddToCart={addToCartAndPersist}
+            onDetail={() => handleCardClick(device)}
           />
         ))}
       </div>

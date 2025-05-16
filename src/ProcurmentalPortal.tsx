@@ -1,12 +1,12 @@
+// ✅ ProcurementPortal.tsx
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
-import Marketplace from "@/components/Marketplace";
 import SubmitProduct from "@/components/SubmitProduct";
 import RatingCriteria from "@/components/RatingCriteria";
-import RatedDevices from "@/components/RatedDevices";
 import { Device } from "./components/DeviceCard";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import DeviceCategoryTabs from "@/components/RatedDevices";
+import { useSearchParams } from "react-router-dom";
 
-// Define setShowStars as a prop in ProcurementPortal
 export default function ProcurementPortal({
   showStars,
   onLogout,
@@ -15,20 +15,43 @@ export default function ProcurementPortal({
   onLogout: () => void;
 }) {
 
-  const [cart, setCart] = useState<Device[]>([]);
-  const addToCart = (device: Device) => setCart((prev) => [...prev, device]);
+  const [searchParams] = useSearchParams();
 
-  // // Update searchParams when showStars state changes
-  // const toggleShowStars = () => {
-  //   setShowStars((prev) => !prev);
-  //   // Toggle the value of showStars in the query parameters
-  //   setSearchParams({ showStars: showStars ? "false" : "true" });
-  // };
+  const defaultMainTab = searchParams.get("marketTab")
+    ? "market"
+    : searchParams.get("ratedTab")
+    ? "rated"
+    : "rated";
 
-  // Update the ProcurementPortal layout to match the logo's aesthetic
+  const [cart, setCart] = useState<Device[]>(() => {
+    try {
+      const stored = localStorage.getItem("cart");
+      if (stored) {
+        const parsed = JSON.parse(stored);
+        if (Array.isArray(parsed)) {
+          return parsed;
+        }
+      }
+    } catch (e) {
+      console.error("Failed to parse cart from localStorage", e);
+    }
+    return [];
+  });
+
+  useEffect(() => {
+    localStorage.setItem("cart", JSON.stringify(cart));
+  }, [cart]);
+
+  const addToCart = (device: Device) => {
+    setCart((prev) => {
+      const newCart = [...prev, device];
+      localStorage.setItem("cart", JSON.stringify(newCart));
+      return newCart;
+    });
+  };
+
   return (
     <div className="min-h-screen p-6 space-y-6 flex flex-col items-center bg-gradient-to-b from-white to-blue-100">
-      {/* Logout Button on left */}
       <div className="w-full flex justify-start">
         <button
           onClick={onLogout}
@@ -37,12 +60,17 @@ export default function ProcurementPortal({
           Logout
         </button>
       </div>
-      <h1 className="text-4xl font-bold text-blue-900">E-Waste Sustainable Procurement Portal</h1>
 
-   
-      <Tabs defaultValue="rated" className="space-y-4 w-full max-w-5xl mx-auto bg-white p-6 rounded-lg shadow-lg">
+      <h1 className="text-4xl font-bold text-blue-900">
+        E-Waste Sustainable Procurement Portal
+      </h1>
+
+      <Tabs
+        defaultValue={defaultMainTab} // ✅ use URL to control active tab
+        className="space-y-4 w-full max-w-5xl mx-auto bg-white p-6 rounded-lg shadow-lg"
+      >
         <TabsList className="flex justify-center gap-4 border border-blue-200 p-2 rounded-lg">
-          <TabsTrigger value="rated" className="text-blue-900">⭐ Rated Devices</TabsTrigger>
+          <TabsTrigger value="rated" className="text-blue-900">⭐ Devices</TabsTrigger>
           <TabsTrigger value="market" className="text-blue-900">♻️ Marketplace</TabsTrigger>
           <TabsTrigger value="submit" className="text-blue-900">📤 Submit New Product</TabsTrigger>
           {showStars && (
@@ -53,14 +81,31 @@ export default function ProcurementPortal({
         </TabsList>
 
         <TabsContent value="rated">
-          <RatedDevices showStars={showStars} cart={cart} addToCart={addToCart} />
+          <DeviceCategoryTabs
+            title="Electronics by Category"
+            showStars={showStars}
+            cart={cart}
+            addToCart={addToCart}
+            urlKey="ratedTab"
+            conditionFilter="Brand New"
+          />
         </TabsContent>
-       <TabsContent value="market">
-          <Marketplace cart={cart} addToCart={addToCart} />
+
+        <TabsContent value="market">
+          <DeviceCategoryTabs
+            title="Electronics by Category"
+            showStars={showStars}
+            cart={cart}
+            addToCart={addToCart}
+            urlKey="marketTab"
+            conditionFilter="Second Hand"
+          />
         </TabsContent>
+
         <TabsContent value="submit">
           <SubmitProduct />
         </TabsContent>
+
         <TabsContent value="criteria">
           <RatingCriteria />
         </TabsContent>

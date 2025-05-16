@@ -24,16 +24,7 @@ export default function DeviceCard({
   onAddToCart: (device: Device) => void;
   onDetail:(device: Device) => void;
 }) {
-//   const navigate = useNavigate();
 
-// //   const handleClick = () => {
-// //     posthog.capture("clicked_device_card", {
-// //       name: device.name,
-// //       category: device.category,
-// //       star: device.star,
-// //     });
-// //     navigate(`/devices/${device.category}/${device.id}`);
-// //   };
 
   return (
     <Card className="cursor-pointer hover:shadow-lg transition bg-white text-black">
