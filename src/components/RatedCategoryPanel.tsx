@@ -106,7 +106,6 @@ export default function RatedCategoryPanel({
                 setMinStars(value);
                 posthog.capture("used_star_filter", { star: value });
               }}
-            />
             >
               <option value={0}>All</option>
               <option value={1}>1+</option>
