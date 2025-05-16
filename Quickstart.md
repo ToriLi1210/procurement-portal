@@ -65,6 +65,12 @@ Example `meta.json`:
   "star": 4,
   "price": 899,
   "condition":"Brand New",
+  "overallScore": 85,
+  "warranty": "3 Years",
+  "repairability": "Difficult",
+  "modularity": "Low",
+  "lifespan": "10+ Years",
+  "buildQuality": "High"
 
 }
 ```

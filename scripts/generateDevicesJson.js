@@ -25,11 +25,11 @@ for (const category of readdirSync(baseDir)) {
       let condition = "";
       // Add additional attributes to the generated JSON
       let overallScore = 0;
-      let warranty = "1 year";
-      let repairability = "Moderate";
-      let modularity = "Partial";
-      let lifespan = "3 years";
-      let buildQuality = "Medium";
+      let warranty = "";
+      let repairability = "";
+      let modularity = "";
+      let lifespan = "";
+      let buildQuality = "";
 
       //  read meta.json
       if (existsSync(metaPath)) {
@@ -38,13 +38,14 @@ for (const category of readdirSync(baseDir)) {
           description = meta.description || "";
           star = meta.star || 0;
           price = meta.price || 0;
-          condition = meta.condition || "Brand New";
-          overallScore = meta.overallScore || 0;
-          warranty = meta.warranty || "1 year";
-          repairability = meta.repairability || "Moderate";
-          modularity = meta.modularity || "Partial";
-          lifespan = meta.lifespan || "3 years";
-          buildQuality = meta.buildQuality || "Medium";
+          condition = meta.condition || "";
+          overallScore = meta.overallScore || "";
+          warranty = meta.warranty || `${Math.floor(Math.random() * 5) + 1} year`;
+          repairability = meta.repairability || getRandomElement(["Low", "Moderate", "High"]);
+          modularity = meta.modularity || getRandomElement(["No", "Partial", "Full"]);
+          lifespan = meta.lifespan || `${Math.floor(Math.random() * 9) + 2} years`;
+          buildQuality = meta.buildQuality || getRandomElement(["Low", "Medium", "High", "Very High"]);
+
         } catch (err) {
           console.warn(`⚠️ Failed to parse meta.json for ${deviceId}: ${err.message}`);
         }

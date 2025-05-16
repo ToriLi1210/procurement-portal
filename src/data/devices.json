@@ -6,14 +6,14 @@
       "category": "keyboard",
       "description": "Magic Keyboard is available with Touch ID, providing fast, easy and secure authentication for logins and purchases.",
       "star": 3,
-      "price": 279,
+      "price": 209,
       "condition": "Brand New",
-      "overallScore": 0,
-      "warranty": "1 Year",
-      "repairability": "Easy",
+      "overallScore": 54,
+      "warranty": "2 Years",
+      "repairability": "Moderate",
       "modularity": "Low",
-      "lifespan": "5 Years",
-      "buildQuality": "Medium"
+      "lifespan": "4 Years",
+      "buildQuality": "High"
     },
     {
       "id": "DasKeyboard",
@@ -23,27 +23,12 @@
       "star": 3,
       "price": 189,
       "condition": "Second Hand",
-      "overallScore": 0,
-      "warranty": "1 year",
-      "repairability": "Moderate",
-      "modularity": "Partial",
-      "lifespan": "3 years",
-      "buildQuality": "Medium"
-    },
-    {
-      "id": "DellMultimediaKeyboard",
-      "name": "Dell Multimedia Keyboard",
-      "category": "keyboard",
-      "description": "Enhance your productivity with the Dell Multimedia Corbed Keyboard. This sleek, black membrane keyboard features chiclet-style keys for comfortable and responsive typing. The USB 2.0 connection provides a quick and reliable link to your computer. Weighing just 420g, the compact 127mm x 442mm x 24mm dimensions mean this keyboard is ideal for any workspace. The one-year Dell warranty provides peace of mind. With its full QWERTY layout and membrane key switches, this keyboard makes typing easier than ever. The manufacturer's part number for this product is 580-AHHG. So get more done with the Dell Multimedia Corded Keyboard today! ",
-      "star": 3,
-      "price": 22,
-      "condition": "Second Hand",
-      "overallScore": 0,
-      "warranty": "1 year",
-      "repairability": "Moderate",
-      "modularity": "Partial",
-      "lifespan": "3 years",
-      "buildQuality": "Medium"
+      "overallScore": 50,
+      "warranty": "3 Years",
+      "repairability": "High",
+      "modularity": "High",
+      "lifespan": "4 Years",
+      "buildQuality": "Very High"
     },
     {
       "id": "HP350CompactWirelessMulti-DeviceKeyboard",
@@ -53,12 +38,12 @@
       "star": 4,
       "price": 59,
       "condition": "Brand New",
-      "overallScore": 0,
-      "warranty": "1 year",
+      "overallScore": 52,
+      "warranty": "4 Years",
       "repairability": "Moderate",
-      "modularity": "Partial",
-      "lifespan": "3 years",
-      "buildQuality": "Medium"
+      "modularity": "Low",
+      "lifespan": "4 Years",
+      "buildQuality": "High"
     },
     {
       "id": "LogitechK780Multi-DeviceWirelessKeyboard",
@@ -68,12 +53,12 @@
       "star": 4,
       "price": 129,
       "condition": "Brand New",
-      "overallScore": 0,
-      "warranty": "1 Year",
-      "repairability": "Easy",
-      "modularity": "Low",
-      "lifespan": "5 Years",
-      "buildQuality": "Medium"
+      "overallScore": 66,
+      "warranty": "4 Years",
+      "repairability": "High",
+      "modularity": "High",
+      "lifespan": "6 Years",
+      "buildQuality": "High"
     },
     {
       "id": "Microsoft600WiredKeyboard",
@@ -83,12 +68,27 @@
       "star": 3,
       "price": 29,
       "condition": "Brand New",
-      "overallScore": 0,
-      "warranty": "1 year",
+      "overallScore": 42,
+      "warranty": "2 Years",
       "repairability": "Moderate",
       "modularity": "Partial",
-      "lifespan": "3 years",
+      "lifespan": "4 Years",
       "buildQuality": "Medium"
+    },
+    {
+      "id": "UltimateHackingKeyboard",
+      "name": "Ultimate Hacking Keyboard",
+      "category": "keyboard",
+      "description": "A split, fully programmable keyboard with hot-swappable switches and modular accessories for ultimate repairability and sustainability.",
+      "star": 5,
+      "price": 320,
+      "condition": "Brand New",
+      "overallScore": 85,
+      "warranty": "5 Years",
+      "repairability": "High",
+      "modularity": "High",
+      "lifespan": "10+ Years",
+      "buildQuality": "Premium"
     }
   ],
   "Laptop": [
@@ -100,12 +100,12 @@
       "star": 2.5,
       "price": 698,
       "condition": "Second Hand",
-      "overallScore": 0,
+      "overallScore": 1,
       "warranty": "1 Year",
       "repairability": "Easy",
       "modularity": "Low",
       "lifespan": "5 Years",
-      "buildQuality": "Medium"
+      "buildQuality": "Low"
     },
     {
       "id": "Lenovo",
@@ -115,12 +115,12 @@
       "star": 2,
       "price": 1098,
       "condition": "Second Hand",
-      "overallScore": 0,
+      "overallScore": 2,
       "warranty": "1 Year",
       "repairability": "Easy",
       "modularity": "Low",
       "lifespan": "5 Years",
-      "buildQuality": "Medium"
+      "buildQuality": "Very High"
     }
   ],
   "Microwave": [
@@ -132,7 +132,7 @@
       "star": 4.5,
       "price": 287,
       "condition": "Brand New",
-      "overallScore": 0,
+      "overallScore": 3,
       "warranty": "1 Year",
       "repairability": "Easy",
       "modularity": "Low",
@@ -147,12 +147,12 @@
       "star": 5,
       "price": 359,
       "condition": "Brand New",
-      "overallScore": 0,
+      "overallScore": 3,
       "warranty": "1 Year",
       "repairability": "Easy",
       "modularity": "Low",
       "lifespan": "5 Years",
-      "buildQuality": "Medium"
+      "buildQuality": "Very High"
     }
   ],
   "Monitor": [
@@ -164,7 +164,7 @@
       "star": 3.2,
       "price": 298,
       "condition": "Brand New",
-      "overallScore": 0,
+      "overallScore": 4,
       "warranty": "1 Year",
       "repairability": "Easy",
       "modularity": "Low",
@@ -179,44 +179,74 @@
       "star": 4.9,
       "price": 248,
       "condition": "Brand New",
-      "overallScore": 0,
+      "overallScore": 2,
       "warranty": "1 Year",
       "repairability": "Easy",
       "modularity": "Low",
       "lifespan": "5 Years",
-      "buildQuality": "Medium"
+      "buildQuality": "High"
     }
   ],
   "Scientificequipment": [
     {
-      "id": "Batterymate",
-      "name": "Batterymate",
+      "id": "Aneng AN8008",
+      "name": "Aneng AN8008",
       "category": "scientificequipment",
-      "description": "A versatile tool for electricians, technicians, and students, the BatteryMate XL830L Current New Tester Volt Meter Ohmmeter Ammeter AC/DC Digital Multimeter helps you get precise measurements with ease. With its easy-to-read LCD screen, overload protection, and durable design, this multimeter handles a variety of electrical tasks, from circuit testing to voltage and current measurement.",
-      "star": 2.5,
-      "price": 19.95,
+      "description": "Budget-friendly and functional, lacks advanced safety. Auto-ranging, compact design, data hold, diode test, continuity, basic buzzer.",
+      "star": 3,
+      "price": 30,
       "condition": "Brand New",
-      "overallScore": 0,
+      "overallScore": 45,
       "warranty": "1 Year",
-      "repairability": "Easy",
+      "repairability": "Moderate",
       "modularity": "Low",
-      "lifespan": "5 Years",
+      "lifespan": "3-5 Years",
       "buildQuality": "Medium"
     },
     {
-      "id": "DigitalVolt",
-      "name": "Digital Volt",
+      "id": "Fluke 117",
+      "name": "Fluke 117",
       "category": "scientificequipment",
-      "description": "Measure a variety of power indicators to help prevent peak currents damaging battery, motors, wiring, ESC, and connectors with the Atem Power 200 AMP Digital Volt Watt Metre Caravan 4x4 Camping Solar 12V Ammeter.",
-      "star": 1.5,
+      "description": "Industry-standard tool for engineers; high accuracy. LoZ for ghost voltage, True RMS, CAT III 600V, AutoVolt, backlight, non-contact voltage.",
+      "star": 4.5,
+      "price": 450,
+      "condition": "Brand New",
+      "overallScore": 85,
+      "warranty": "3 Years",
+      "repairability": "Difficult",
+      "modularity": "Low",
+      "lifespan": "10+ Years",
+      "buildQuality": "High"
+    },
+    {
+      "id": "UNI-T UT89XD+",
+      "name": "UNI-T UT89 XD+",
+      "category": "scientificequipment",
+      "description": "Reliable mid-range model with sufficient features. True RMS, NCV detection, diode and continuity testing, backlight, data hold.",
+      "star": 4,
+      "price": 50,
+      "condition": "Second Hand",
+      "overallScore": 65,
+      "warranty": "2 Years",
+      "repairability": "Moderate",
+      "modularity": "Moderate",
+      "lifespan": "5-7 Years",
+      "buildQuality": "High"
+    },
+    {
+      "id": "VICTOR VC97",
+      "name": "VICTOR VC97",
+      "category": "scientificequipment",
+      "description": "Accurate and versatile, limited industrial use. Auto-ranging, voltage, resistance, frequency, capacitance, continuity.",
+      "star": 3.5,
       "price": 40,
       "condition": "Brand New",
-      "overallScore": 0,
-      "warranty": "1 Year",
-      "repairability": "Easy",
+      "overallScore": 55,
+      "warranty": "2 Years",
+      "repairability": "Moderate",
       "modularity": "Low",
-      "lifespan": "5 Years",
-      "buildQuality": "Medium"
+      "lifespan": "3-5 Years",
+      "buildQuality": "High"
     }
   ]
 }

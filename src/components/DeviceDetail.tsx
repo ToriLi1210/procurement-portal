@@ -40,6 +40,11 @@ export default function DeviceDetail({ showStars }: { showStars: boolean }) {
   );
 
   if (!device) {
+    console.warn("🔍 Available devices for debugging:");
+    allDevices.forEach((d) =>
+      console.warn(`→ category: ${d.category}, id: ${d.id}`)
+    );
+
     return <p className="p-4 text-gray-600">Device not found.</p>;
   }
 

@@ -1,12 +1,15 @@
-const { readdirSync, readFileSync, writeFileSync, statSync } = require("fs");
-const path = require("path");
+import { readdirSync, readFileSync, writeFileSync, statSync } from "fs";
+import path from "path";
+import { fileURLToPath } from "url";
 
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 const baseDir = path.join(__dirname, "../public/images/devices");
 
 function getRandomElement(array) {
   return array[Math.floor(Math.random() * array.length)];
 }
-
 function updateMetaJson(directory) {
   const entries = readdirSync(directory);
 
