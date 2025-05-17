@@ -71,7 +71,7 @@ export default function ProcurementPortal({
       </div>
 
       <h1 className="text-4xl font-bold text-blue-900">
-        E-Waste Sustainable Procurement Portal
+       Procurement Portal
       </h1>
 
       {/* Cart UI */}
