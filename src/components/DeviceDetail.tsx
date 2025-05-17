@@ -150,7 +150,7 @@ export default function DeviceDetail({ showStars }: { showStars: boolean }) {
       </div>
 
       {/* Specifications Table */}
-      {showStars && (
+      {showStars && device.condition !== "Second Hand" && (
         <div className="bg-white shadow-md rounded-lg p-6">
           <img
             src={`${import.meta.env.BASE_URL}images/starrating/${device.star} Stars.png`}
