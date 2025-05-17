@@ -111,14 +111,17 @@ export default function ProcurementPortal({
         <TabsList className="flex justify-center gap-4 border border-blue-200 p-2 rounded-lg">
           <TabsTrigger value="rated" className="text-blue-900">⭐ Devices</TabsTrigger>
           <TabsTrigger value="market" className="text-blue-900">♻️ Marketplace</TabsTrigger>
-          <TabsTrigger value="submit" className="text-blue-900">📤 Submit New Product</TabsTrigger>
           {showStars && (
-            <TabsTrigger value="criteria" className="text-blue-900">
-              📘 Rating Criteria
-            </TabsTrigger>
-          )}
-        </TabsList>
-
+              <>
+                <TabsTrigger value="criteria" className="text-blue-900">
+                  📘 Rating Criteria
+                </TabsTrigger>
+                <TabsTrigger value="submit" className="text-blue-900">
+                  📤 Submit New Product
+                </TabsTrigger>
+              </>
+            )}
+          </TabsList>
         <TabsContent value="rated">
           <DeviceCategoryTabs
             title="Electronics by Category"
