@@ -136,7 +136,7 @@ export default function ProcurementPortal({
         <TabsContent value="market">
           <DeviceCategoryTabs
             title="Electronics by Category"
-            showStars={showStars}
+            showStars={false}
             cart={cart}
             addToCart={addToCart}
             urlKey="marketTab"

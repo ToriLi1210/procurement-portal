@@ -123,7 +123,7 @@ export default function DeviceDetail({ showStars }: { showStars: boolean }) {
           </div>
 
           {/* Stars */}
-          {showStars && (
+          {showStars && device.condition !== "Second Hand" && (
             <div className="flex items-center gap-2">
               <div className="star-rating-container">
                 <div
