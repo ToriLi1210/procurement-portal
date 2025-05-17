@@ -30,6 +30,7 @@ for (const category of readdirSync(baseDir)) {
       let modularity = "";
       let lifespan = "";
       let buildQuality = "";
+      let yearofservice = 0;
 
       //  read meta.json
       if (existsSync(metaPath)) {
@@ -45,6 +46,8 @@ for (const category of readdirSync(baseDir)) {
           modularity = meta.modularity || getRandomElement(["No", "Partial", "Full"]);
           lifespan = meta.lifespan || `${Math.floor(Math.random() * 9) + 2} years`;
           buildQuality = meta.buildQuality || getRandomElement(["Low", "Medium", "High", "Very High"]);
+          // yearofService: if meta.yearofService is undefined, set to 0
+          yearofservice = typeof meta.yearofservice === "undefined" ? 0 : meta.yearofservice;
 
         } catch (err) {
           console.warn(`⚠️ Failed to parse meta.json for ${deviceId}: ${err.message}`);
@@ -65,6 +68,7 @@ for (const category of readdirSync(baseDir)) {
         modularity,
         lifespan,
         buildQuality,
+        yearofservice,
       };
     });
   }

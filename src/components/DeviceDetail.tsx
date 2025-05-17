@@ -19,6 +19,7 @@ export type Device = {
   modularity: string;
   lifespan: string;
   buildQuality: string;
+  yearofservice?: number;
 };
 
 
@@ -108,11 +109,16 @@ export default function DeviceDetail({ showStars }: { showStars: boolean }) {
               >
                 {device.condition}
               </span>
+              {device.condition === "Second Hand" && typeof device.yearofservice === "number" && (
+                <span className="ml-2 text-xs font-semibold px-2.5 py-0.5 rounded bg-blue-100 text-blue-800 align-middle">
+                  {device.yearofservice} yrs used
+                </span>
+              )}
             </div>
 
             {/* Price */}
             <p className="text-green-700 text-2xl font-semibold">
-              ${device.price.toFixed(2)}
+              {device.price === 0 ? "Free" : `$${device.price.toFixed(2)}`}
             </p>
           </div>
 

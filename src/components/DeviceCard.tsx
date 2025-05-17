@@ -11,6 +11,7 @@ export type Device = {
   star: number;
   price: number;
   condition: string;
+  yearofservice: number;
 };
 
 export default function DeviceCard({
@@ -62,8 +63,13 @@ export default function DeviceCard({
                 : "bg-green-100 text-green-800"
             }`}
           >
-                {device.condition}
+            {device.condition}
           </span>
+          {device.condition === "Second Hand" && (
+            <span className="inline-block ml-2 mt-1 px-2 py-0.5 rounded-full text-xs font-semibold bg-blue-100 text-blue-800 align-middle">
+              {device.yearofservice} yrs used
+            </span>
+          )}
 
           {showStars && (
             <p className="text-sm text-yellow-600 font-medium">

@@ -13,7 +13,8 @@
       "repairability": "Moderate",
       "modularity": "Low",
       "lifespan": "4 Years",
-      "buildQuality": "High"
+      "buildQuality": "High",
+      "yearofservice": 0
     },
     {
       "id": "DasKeyboard",
@@ -28,7 +29,8 @@
       "repairability": "High",
       "modularity": "High",
       "lifespan": "4 Years",
-      "buildQuality": "Very High"
+      "buildQuality": "Very High",
+      "yearofservice": 0
     },
     {
       "id": "HP350CompactWirelessMulti-DeviceKeyboard",
@@ -43,7 +45,8 @@
       "repairability": "Moderate",
       "modularity": "Low",
       "lifespan": "3 Years",
-      "buildQuality": "Medium"
+      "buildQuality": "Medium",
+      "yearofservice": 0
     },
     {
       "id": "LogitechK780Multi-DeviceWirelessKeyboard",
@@ -58,7 +61,8 @@
       "repairability": "High",
       "modularity": "High",
       "lifespan": "6 Years",
-      "buildQuality": "High"
+      "buildQuality": "High",
+      "yearofservice": 0
     },
     {
       "id": "Microsoft600WiredKeyboard",
@@ -73,7 +77,8 @@
       "repairability": "Moderate",
       "modularity": "Partial",
       "lifespan": "2 Years",
-      "buildQuality": "Medium"
+      "buildQuality": "Medium",
+      "yearofservice": 0
     },
     {
       "id": "UltimateHackingKeyboard",
@@ -88,7 +93,8 @@
       "repairability": "High",
       "modularity": "High",
       "lifespan": "10+ Years",
-      "buildQuality": "Premium"
+      "buildQuality": "Premium",
+      "yearofservice": 0
     }
   ],
   "Laptop": [
@@ -96,31 +102,33 @@
       "id": "Acer",
       "name": "Acer",
       "category": "laptop",
-      "description": "Offering fast computing capabilities and ample storage, the Acer Aspire Lite 16 16-inch i5-1334U/8GB/512GB SSD Laptop can handle any task with ease. With a combination of style and function, this laptop can deliver an impressive experience.",
+      "description": "Offering fast computing capabilities and ample storage, the Acer Aspire Lite 16 16-inch i5-1334U/8GB/512GB SSD Laptop can handle any task with ease. This second-hand device has been used for 2 years and remains in good working condition, with minor scratches on the case.",
       "star": 2.5,
-      "price": 698,
+      "price": 0,
       "condition": "Second Hand",
       "overallScore": 1,
       "warranty": "1 Year",
       "repairability": "Easy",
       "modularity": "Low",
       "lifespan": "5 Years",
-      "buildQuality": "Low"
+      "buildQuality": "Low",
+      "yearofservice": 2
     },
     {
       "id": "Apple",
       "name": "Apple",
       "category": "laptop",
       "description": "The 16-inch MacBook Pro with M4 Pro and M4 Max chips gives you outrageous performance in a powerhouse laptop built for Apple Intelligence.[1] With up to 24 hours of battery life[2] and a breathtaking Liquid Retina XDR display with up to 1,600 nits peak brightness, it’s pro in every way.",
-      "star": 3,
+      "star": 4.5,
       "price": 3877,
       "condition": "Brand New",
       "overallScore": 58.33,
       "warranty": "1 Year",
       "repairability": "Hard",
-      "modularity": "Low",
-      "lifespan": "5 Years",
-      "buildQuality": "Very High"
+      "modularity": "High",
+      "lifespan": "10 Years",
+      "buildQuality": "Very High",
+      "yearofservice": 0
     },
     {
       "id": "Asus",
@@ -135,7 +143,8 @@
       "repairability": "Medium",
       "modularity": "Low",
       "lifespan": "5 Years",
-      "buildQuality": "Medium"
+      "buildQuality": "Medium",
+      "yearofservice": 0
     },
     {
       "id": "Framework",
@@ -150,37 +159,40 @@
       "repairability": "Easy",
       "modularity": "High",
       "lifespan": "5 Years",
-      "buildQuality": "High"
+      "buildQuality": "High",
+      "yearofservice": 0
     },
     {
       "id": "HP Victus",
       "name": "HP Victus",
       "category": "laptop",
       "description": "The HP Victus 15-fa2723TX is a 15.6-inch FHD (1920 x 1080) gaming laptop with a 144Hz display, designed for gamers. It's equipped with a 13th generation Intel Core i5 processor, 16GB of DDR4-3200 RAM, and a 512GB SSD. It also includes an NVIDIA GeForce RTX 4050 GPU for graphics processing.",
-      "star": 2.5,
+      "star": 1.5,
       "price": 1499,
       "condition": "Brand New",
       "overallScore": 54.16,
       "warranty": "1 Year",
       "repairability": "Easy",
-      "modularity": "Medium",
+      "modularity": "Low",
       "lifespan": "5 Years",
-      "buildQuality": "Medium"
+      "buildQuality": "Medium",
+      "yearofservice": 0
     },
     {
       "id": "Lenovo",
       "name": "Lenovo",
       "category": "laptop",
-      "description": "With its 360° convertible setup, durable, drop-down hinge, powerful AMD Ryzen™ processor, and full-function Type-C™ port, the Lenovo IdeaPad Flex 5 is a practical and versatile workspace option that adapts and fits to your needs, moods, and environments.",
+      "description": "With its 360° convertible setup, durable, drop-down hinge, powerful AMD Ryzen™ processor, and full-function Type-C™ port. This second-hand device has been used for 4 years, remains reliable, and shows typical signs of previous use.",
       "star": 2,
-      "price": 1098,
+      "price": 0,
       "condition": "Second Hand",
       "overallScore": 2,
       "warranty": "1 Year",
       "repairability": "Easy",
       "modularity": "Low",
       "lifespan": "5 Years",
-      "buildQuality": "Very High"
+      "buildQuality": "Very High",
+      "yearofservice": 4
     }
   ],
   "Microwave": [
@@ -197,7 +209,8 @@
       "repairability": "Easy",
       "modularity": "Low",
       "lifespan": "5 Years",
-      "buildQuality": "Medium"
+      "buildQuality": "Medium",
+      "yearofservice": 0
     },
     {
       "id": "Panasonic",
@@ -212,7 +225,8 @@
       "repairability": "Easy",
       "modularity": "Low",
       "lifespan": "5 Years",
-      "buildQuality": "Very High"
+      "buildQuality": "Very High",
+      "yearofservice": 0
     }
   ],
   "Monitor": [
@@ -229,7 +243,8 @@
       "repairability": "Easy",
       "modularity": "Low",
       "lifespan": "5 Years",
-      "buildQuality": "Medium"
+      "buildQuality": "Medium",
+      "yearofservice": 0
     },
     {
       "id": "Samsung",
@@ -244,7 +259,8 @@
       "repairability": "Easy",
       "modularity": "Low",
       "lifespan": "5 Years",
-      "buildQuality": "High"
+      "buildQuality": "High",
+      "yearofservice": 0
     }
   ],
   "Scientificequipment": [
@@ -261,7 +277,8 @@
       "repairability": "Moderate",
       "modularity": "Low",
       "lifespan": "3-5 Years",
-      "buildQuality": "Medium"
+      "buildQuality": "Medium",
+      "yearofservice": 0
     },
     {
       "id": "Fluke 117",
@@ -276,13 +293,14 @@
       "repairability": "Difficult",
       "modularity": "Low",
       "lifespan": "10+ Years",
-      "buildQuality": "High"
+      "buildQuality": "High",
+      "yearofservice": 0
     },
     {
       "id": "UNI-T UT89XD+",
       "name": "UNI-T UT89 XD+",
       "category": "scientificequipment",
-      "description": "Reliable mid-range model with sufficient features. True RMS, NCV detection, diode and continuity testing, backlight, data hold.",
+      "description": "Reliable mid-range model with sufficient features. True RMS, NCV detection, diode and continuity testing, backlight, data hold. This second-hand device has been used for 3 years and is in good working order, with some normal signs of use.",
       "star": 4,
       "price": 50,
       "condition": "Second Hand",
@@ -291,7 +309,8 @@
       "repairability": "Moderate",
       "modularity": "Moderate",
       "lifespan": "5-7 Years",
-      "buildQuality": "High"
+      "buildQuality": "High",
+      "yearofservice": 3
     },
     {
       "id": "VICTOR VC97",
@@ -306,7 +325,8 @@
       "repairability": "Moderate",
       "modularity": "Low",
       "lifespan": "3-5 Years",
-      "buildQuality": "High"
+      "buildQuality": "High",
+      "yearofservice": 0
     }
   ]
 }
